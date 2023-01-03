@@ -12,6 +12,10 @@ public class HeartBeat {
         this.dateTime = dateTime;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
     public int getBeatsPerMinute() {
         return this.beatsPerMinute;
     }

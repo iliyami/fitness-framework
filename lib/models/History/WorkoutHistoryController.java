@@ -39,11 +39,11 @@ public class WorkoutHistoryController {
         return True;
     }
 
-    public Boolean updateHistory(String id, WorkoutSession session) {
+    public Boolean updateHistory(int id, WorkoutSession session) {
         return True;
     }
 
-    public Boolean deleteHistory(String id) {
+    public Boolean deleteHistory(int id) {
         return True;
     }
 }

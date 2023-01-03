@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 
 public class WorkoutHistory {
-    private String id;
+    private int id;
     private LocalDateTime timestamp;
     private WorkoutSession workoutSession;
 
-    public WorkoutHistory(String id, LocalDateTime timestamp, WorkoutSession workoutSession) {
+    public WorkoutHistory(int id, LocalDateTime timestamp, WorkoutSession workoutSession) {
         this.setId(id);
         this.setTimestamp(timestamp);
         this.setWorkoutSession(workoutSession);
@@ -20,11 +20,11 @@ public class WorkoutHistory {
         return dummyhistory;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(String id) {
+    private void setId(int id) {
         this.id = id;
     }
 

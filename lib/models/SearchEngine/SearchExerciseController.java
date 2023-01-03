@@ -6,7 +6,7 @@ import Exercise.Exercise;
 import Exercise.ExerciseType;
 
 public class SearchExerciseController {
-    public Exercise getExerciseById(String id){
+    public Exercise getExerciseById(int id){
         return null;
     }
     public List<Exercise> getExerciseByType(ExerciseType exerciseType){

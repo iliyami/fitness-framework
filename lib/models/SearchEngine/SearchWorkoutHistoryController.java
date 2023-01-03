@@ -18,7 +18,7 @@ public class SearchWorkoutHistoryController {
         this.workoutHistoryController = workoutHistoryController;
     }
 
-    public WorkoutHistory getHistoryById(String id) {
+    public WorkoutHistory getHistoryById(int id) {
         return null;
     }
 

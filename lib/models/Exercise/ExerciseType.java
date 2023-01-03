@@ -1,6 +1,6 @@
 package Exercise;
 
-enum ExerciseType {
+public enum ExerciseType {
     MUSCULAR,
     CARDIOVASCULAR,
 }

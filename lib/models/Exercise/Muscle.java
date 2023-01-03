@@ -1,4 +1,4 @@
-package Muscle;
+package Exercise;
 
 public class Muscle {
     private String name;

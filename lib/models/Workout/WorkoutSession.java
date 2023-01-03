@@ -8,7 +8,23 @@ public class WorkoutSession {
     private LocalDateTime finishTime;
 
     public void startSession(final WorkoutPlan plan) {
-        this.startTime = LocalDateTime.now();
+        this.setStartTime(LocalDateTime.now());
+    }
+
+    public LocalDateTime getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(LocalDateTime finishTime) {
+        this.finishTime = finishTime;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
     public WorkoutPlan getPlan() {
@@ -20,7 +36,7 @@ public class WorkoutSession {
     }
 
     public void finishSession(final WorkoutPlan plan) {
-        this.finishTime = LocalDateTime.now();
+        this.setFinishTime(LocalDateTime.now());
 
     }
 }

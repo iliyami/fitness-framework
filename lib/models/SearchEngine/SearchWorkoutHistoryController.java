@@ -10,11 +10,19 @@ import History.WorkoutHistoryController;
 public class SearchWorkoutHistoryController {
     private WorkoutHistoryController workoutHistoryController;
 
-    public WorkoutHistory getHistoryById(String id){
+    public WorkoutHistoryController getWorkoutHistoryController() {
+        return workoutHistoryController;
+    }
+
+    public void setWorkoutHistoryController(WorkoutHistoryController workoutHistoryController) {
+        this.workoutHistoryController = workoutHistoryController;
+    }
+
+    public WorkoutHistory getHistoryById(String id) {
         return null;
     }
 
-    public WorkoutHistory getHistoryByIndex(int index){
+    public WorkoutHistory getHistoryByIndex(int index) {
         return null;
     }
 
@@ -45,10 +53,4 @@ public class SearchWorkoutHistoryController {
     public List<WorkoutHistory> getHistoriesFilteredByWeight(float weight){
         return null;
     }
-
-    public List<WorkoutHistory> getHistoriesBy(){
-        return null;
-    }
-
-
 }

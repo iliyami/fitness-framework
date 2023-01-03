@@ -9,14 +9,29 @@ public class WorkoutHistoryController {
     private WorkoutHistoryController historyController;
     private List<WorkoutHistory> workoutHistories;
 
-    private WorkoutHistoryController(
-        WorkoutHistoryController historyController,
-        List<WorkoutHistory> workoutHistories){
-            this.historyController = historyController;
-            this.workoutHistories = workoutHistories;
-        }
-    
-    public WorkoutHistoryController getInstance(){
+    private WorkoutHistoryController(WorkoutHistoryController historyController,
+            List<WorkoutHistory> workoutHistories) {
+        this.setHistoryController(historyController);
+        this.setWorkoutHistories(workoutHistories);
+    }
+
+    public List<WorkoutHistory> getWorkoutHistories() {
+        return workoutHistories;
+    }
+
+    private void setWorkoutHistories(List<WorkoutHistory> workoutHistories) {
+        this.workoutHistories = workoutHistories;
+    }
+
+    public WorkoutHistoryController getHistoryController() {
+        return historyController;
+    }
+
+    private void setHistoryController(WorkoutHistoryController historyController) {
+        this.historyController = historyController;
+    }
+
+    public WorkoutHistoryController getInstance() {
         return this;
     }
 

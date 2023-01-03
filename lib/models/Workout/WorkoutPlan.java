@@ -38,13 +38,11 @@ public class WorkoutPlan {
     }
 
     public WorkoutPlan getWorkoutPlanById(int id){
-            WorkoutPlan dummyWorkoutPlan = new WorkoutPlan(1, "name", null);
-            return dummyWorkoutPlan;
+            return null;
         }
 
     public WorkoutPlan editPlan(
         WorkoutPlan plan, String name, List<ExercisePlan> exercisePlans){
-            WorkoutPlan dummyWorkoutPlan = new WorkoutPlan(1, "name", null);
-            return dummyWorkoutPlan;
+            return null;
         }
 }

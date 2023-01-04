@@ -27,7 +27,12 @@ public class DailyMeasure {
     }
 
     public void recordHeartBeat() {
-        return;
+        HeartBeat heartBeat = new HeartBeat(80, LocalDateTime.now() );
+        System.out.println("Heart beat recorded...");
+        System.out.print("Heart beats: ");
+        System.out.println(heartBeat.getBeatsPerMinute());
+        System.out.print("Heart beat date time: ");
+        System.out.println(heartBeat.getDateTime());
     }
     
     public double getBMI() {

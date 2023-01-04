@@ -18,11 +18,11 @@ public class MeasuresManagement {
         return this.dailyMeasures;
     }
 
-    public void addNewDailyMeasure() {
-        return;
+    public void addNewDailyMeasure(DailyMeasure dailyMeasure) {
+        System.out.println("New daily measure added...");
     }
 
     public void removeDailyMeasure(int dailyMeasureId) {
-        return;
+        System.out.println("Daily measure removed...");
     }
 }

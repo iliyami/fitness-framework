@@ -16,7 +16,7 @@ public class WorkoutHistory {
     }
 
     public WorkoutHistory getWorkoutHistory(WorkoutSession workoutSession) {
-        WorkoutHistory dummyhistory = new WorkoutHistory("", null, null);
+        WorkoutHistory dummyhistory = new WorkoutHistory(1, null, null);
         return dummyhistory;
     }
 

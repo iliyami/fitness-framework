@@ -2,7 +2,7 @@ package Workout;
 
 import Exercise.Exercise;
 
-abstract class ExercisePlan {
+public class ExercisePlan {
     private Exercise exercise;
     private int id;
     private float weight;

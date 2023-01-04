@@ -7,7 +7,12 @@ public class WorkoutSession {
     private LocalDateTime startTime;
     private LocalDateTime finishTime;
 
-    public void startSession(final WorkoutPlan plan) {
+    public WorkoutSession(WorkoutPlan plan){
+        this.setPlan(plan);
+    }
+
+    public void startSession() {
+        System.out.println("Session started...");
         this.setStartTime(LocalDateTime.now());
     }
 
@@ -35,8 +40,8 @@ public class WorkoutSession {
         this.plan = plan;
     }
 
-    public void finishSession(final WorkoutPlan plan) {
+    public void finishSession() {
         this.setFinishTime(LocalDateTime.now());
-
+        System.out.println("Session finished...");
     }
 }

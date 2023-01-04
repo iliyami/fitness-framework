@@ -5,16 +5,16 @@ import java.util.List;
 
 public class DailyMeasure {
     private int id;
-    private float height;
-    private float weight;
+    private double height;
+    private double weight;
     private LocalDateTime dateTime;
     private List<HeartBeat> heartBeatRecords;
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
@@ -30,7 +30,7 @@ public class DailyMeasure {
         return;
     }
     
-    public float getBMI() {
+    public double getBMI() {
         return this.weight / (this.height * this.height);
     }
   
@@ -38,11 +38,11 @@ public class DailyMeasure {
         return this.id;
     }
 
-    public float getHeight() {
+    public double getHeight() {
         return this.height;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return this.weight;
     }
 

@@ -1,4 +1,4 @@
-package NotificationManager;
+package Notification;
 
 import java.util.List;
 

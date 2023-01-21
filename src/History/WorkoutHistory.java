@@ -9,14 +9,15 @@ public class WorkoutHistory {
     private LocalDateTime timestamp;
     private WorkoutSession workoutSession;
 
-    public WorkoutHistory(int id, LocalDateTime timestamp, WorkoutSession workoutSession) {
-        this.setId(id);
+    public WorkoutHistory(WorkoutSession workoutSession) {
+        final LocalDateTime time = LocalDateTime.now();
+        this.setId(time.toString().hashCode());
         this.setTimestamp(timestamp);
         this.setWorkoutSession(workoutSession);
     }
 
     public WorkoutHistory getWorkoutHistory(WorkoutSession workoutSession) {
-        WorkoutHistory dummyhistory = new WorkoutHistory(1, null, null);
+        WorkoutHistory dummyhistory = new WorkoutHistory(workoutSession);
         return dummyhistory;
     }
 
@@ -42,5 +43,12 @@ public class WorkoutHistory {
 
     private void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public WorkoutHistory updateWorkoutHistory(WorkoutSession workoutSession) {
+        final WorkoutHistory tempWorkoutHistory = this;
+        tempWorkoutHistory.workoutSession = workoutSession;
+        tempWorkoutHistory.timestamp = LocalDateTime.now();
+        return tempWorkoutHistory;
     }
 }

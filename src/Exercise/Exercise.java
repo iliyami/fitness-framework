@@ -43,7 +43,11 @@ public class Exercise {
     public void setExerciseType(ExerciseType exerciseType) {
         this.exerciseType = exerciseType;
     }
-    public boolean updateExercise(int id, String name, String instruction, int popularity, ExerciseType exerciseType) {
+    public boolean updateExercise(String name, String instruction, int popularity, ExerciseType exerciseType) {
+        this.name = (name == null) ? this.name : name;
+        this.instruction = (instruction == null) ? this.instruction : instruction;
+        this.popularity = popularity;
+        this.exerciseType = exerciseType;
         return true;
     }
 }

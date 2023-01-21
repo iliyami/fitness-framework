@@ -1,49 +1,60 @@
 package History;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Workout.WorkoutSession;
 
 public class WorkoutHistoryController {
-    private static final Boolean True = null;
-    private WorkoutHistoryController historyController;
-    private List<WorkoutHistory> workoutHistories;
+    private ArrayList<WorkoutHistory> workoutHistories;
+    private static WorkoutHistoryController _instance = null;
 
-    private WorkoutHistoryController(WorkoutHistoryController historyController,
-            List<WorkoutHistory> workoutHistories) {
-        this.setHistoryController(historyController);
-        this.setWorkoutHistories(workoutHistories);
+    private WorkoutHistoryController() {
+        workoutHistories = new ArrayList<WorkoutHistory>();
+    }
+
+    public static WorkoutHistoryController getInstance()
+    {
+        if (_instance == null)
+            _instance = new WorkoutHistoryController();
+  
+        return _instance;
     }
 
     public List<WorkoutHistory> getWorkoutHistories() {
         return workoutHistories;
     }
 
-    private void setWorkoutHistories(List<WorkoutHistory> workoutHistories) {
+    public void setWorkoutHistories(ArrayList<WorkoutHistory> workoutHistories) {
         this.workoutHistories = workoutHistories;
     }
 
-    public WorkoutHistoryController getHistoryController() {
-        return historyController;
-    }
-
-    private void setHistoryController(WorkoutHistoryController historyController) {
-        this.historyController = historyController;
-    }
-
-    public WorkoutHistoryController getInstance() {
-        return this;
-    }
-
     public Boolean saveHistory(WorkoutSession session) {
-        return True;
+        
+        return workoutHistories.add(new WorkoutHistory(session));
     }
 
     public Boolean updateHistory(int id, WorkoutSession session) {
-        return True;
+        boolean isUpdated = false;
+        for (int i = 0; i < workoutHistories.size(); i++) {
+            final WorkoutHistory item = workoutHistories.get(i);
+            if (item.getId() == id) {
+                workoutHistories.set(i, item.updateWorkoutHistory(session));
+                isUpdated = true;
+            }
+        }
+        return isUpdated;
     }
 
     public Boolean deleteHistory(int id) {
-        return True;
+        boolean isDeleted = false;
+        for (int i = 0; i < workoutHistories.size(); i++) {
+            final WorkoutHistory item = workoutHistories.get(i);
+            if (item.getId() == id) {
+                workoutHistories.remove(i);
+                isDeleted = true;
+            }
+        }
+        return isDeleted;
     }
 }

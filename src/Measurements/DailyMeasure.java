@@ -1,21 +1,25 @@
 package Measurements;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class DailyMeasure {
+    private static int count = 0;
     private int id;
     private double height;
     private double weight;
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private List<HeartBeat> heartBeatRecords;
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
+    public DailyMeasure(double height, double weight) {
+        this.id = count++;
+        this.setHeight(height);
+        this.setWeight(weight);
+        this.date = LocalDate.now();
+        this.heartBeatRecords = new ArrayList<HeartBeat>();
     }
 
     public void addHeartBeatRecord(HeartBeat heartBeat) {
@@ -27,18 +31,28 @@ public class DailyMeasure {
     }
 
     public void recordHeartBeat() {
-        HeartBeat heartBeat = new HeartBeat(80, LocalDateTime.now() );
-        System.out.println("Heart beat recorded...");
-        System.out.print("Heart beats: ");
-        System.out.println(heartBeat.getBeatsPerMinute());
-        System.out.print("Heart beat date time: ");
-        System.out.println(heartBeat.getDateTime());
+        Random random = new Random();
+        int LOW = 20;
+        int HIGH = 150;
+        int beatsPerMinute = random.nextInt(HIGH - LOW) + LOW;
+        HeartBeat heartBeat = new HeartBeat(beatsPerMinute, LocalDateTime.now());
+        this.heartBeatRecords.add(heartBeat);
     }
-    
-    public double getBMI() {
-        return this.weight / (this.height * this.height);
+
+    public void setWeight(double weight) {
+        if (weight < 0) {
+            throw new Error("weight value must be positive");
+        }
+        this.weight = weight;
     }
-  
+
+    public void setHeight(double height) {
+        if (height < 0) {
+            throw new Error("height value must be positive");
+        }
+        this.height = height;
+    }
+
     public int getId() {
         return this.id;
     }
@@ -51,12 +65,16 @@ public class DailyMeasure {
         return this.weight;
     }
 
-    public LocalDateTime getDateTime() {
-        return this.dateTime;
+    public LocalDate getDate() {
+        return this.date;
     }
 
     public List<HeartBeat> getHeartBeatRecords() {
         return this.heartBeatRecords;
+    }
+
+    public double getBMI() {
+        return this.weight / (this.height * this.height);
     }
 
 }

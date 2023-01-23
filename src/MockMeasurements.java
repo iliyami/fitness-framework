@@ -3,9 +3,7 @@ import Measurements.DailyMeasure;
 
 public class MockMeasurements {
     public static void main(String[] args) {
-        DailyMeasure dailyMeasure = new DailyMeasure();
-        dailyMeasure.setHeight(1.80);
-        dailyMeasure.setWeight(80);
+        DailyMeasure dailyMeasure = new DailyMeasure(1.80, 80);
         dailyMeasure.recordHeartBeat();
         System.out.print("BMI: ");
         System.out.println(dailyMeasure.getBMI());

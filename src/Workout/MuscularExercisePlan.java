@@ -11,12 +11,11 @@ public class MuscularExercisePlan extends ExercisePlan {
 
     public MuscularExercisePlan(
         int id, int weight, Exercise exercise, int rep, int set, LocalTime rest){
-            this.setId(id);
-            this.setWeight(weight);
-            this.setExercise(exercise);
+            super(id, weight, exercise);            
             this.setRep(rep);
             this.setRest(rest);
             this.setSet(set);
+            this.addOrUpdateExercisePlanInInventory();
     }
 
     public int getRep() {
@@ -43,8 +42,12 @@ public class MuscularExercisePlan extends ExercisePlan {
         this.rep = rep;
     }
 
-    public boolean updateExercisePlan(
-        int id, int weight, Exercise exercise, int rep, int set, LocalTime rest){
-            return true;
+    public void updateExercisePlan(
+        int weight, Exercise exercise, int rep, int set, LocalTime rest){
+            super.updateExercisePlan(weight, exercise);
+            this.rep = rep;
+            this.set = set;
+            this.rest = rest;
+            this.addOrUpdateExercisePlanInInventory();
     }
 }

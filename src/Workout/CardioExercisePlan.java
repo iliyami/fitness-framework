@@ -11,12 +11,11 @@ public class CardioExercisePlan extends ExercisePlan {
 
     public CardioExercisePlan(
         int id, int weight, Exercise exercise, int calAmount, int interval, LocalTime duration){
-            this.setId(id);
-            this.setWeight(weight);
-            this.setExercise(exercise);
+            super(id, weight, exercise);            
             this.setCalAmount(calAmount);
             this.setInterval(interval);
             this.setDuration(duration);
+            this.addOrUpdateExercisePlanInInventory();
     }
 
     public LocalTime getDuration() {
@@ -43,8 +42,12 @@ public class CardioExercisePlan extends ExercisePlan {
         this.duration = duration;
     }
 
-    public boolean updateExercisePlan(
-        int id, int weight, Exercise exercise, int calAmount, int interval, LocalTime duration){
-            return true;
+    public void updateExercisePlan(
+        int weight, Exercise exercise, int calAmount, int interval, LocalTime duration){
+            super.updateExercisePlan(weight, exercise);
+            this.calAmount = calAmount;
+            this.interval = interval;
+            this.duration = duration;
+            this.addOrUpdateExercisePlanInInventory();
     }
 }

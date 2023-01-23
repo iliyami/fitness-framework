@@ -2,13 +2,18 @@ package Workout;
 
 import Exercise.Exercise;
 
+// when id is set and when it is used?
+// there will be at most one exercise plan per exercise
+
 public class ExercisePlan {
     private Exercise exercise;
     private int id;
     private float weight;
 
-    public Exercise getExercise() {
-        return exercise;
+    public ExercisePlan(int id, int weight, Exercise exercise){
+        this.setId(id);
+        this.setWeight(weight);
+        this.setExercise(exercise);
     }
 
     public float getWeight() {
@@ -27,15 +32,21 @@ public class ExercisePlan {
         this.id = id;
     }
 
+    public Exercise getExercise() {
+        return exercise;
+    }
+
     public void setExercise(Exercise exercise) {
         this.exercise = exercise;
     }
 
-    public ExercisePlan getExercisePlan(int id){
-        return null;
+    public void updateExercisePlan(int weight, Exercise exercise){
+        this.weight = weight;
+        this.exercise = exercise;
     }
 
-    public boolean deleteExercisePlan(int id){
-        return true;
+    public void addOrUpdateExercisePlanInInventory(){
+        exercisePlanInventory = ExercisePlanInventory.getInstance();
+        exercisePlanInventory.addOrUpdateExercisePlan(this);
     }
 }

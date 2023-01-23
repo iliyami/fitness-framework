@@ -27,10 +27,10 @@ public class DailyMeasure {
     }
 
     public void removeHeartBeatRecord(int heartBeatId) {
-        return;
+        this.heartBeatRecords.removeIf(heartBeatRecord -> heartBeatRecord.getId() == heartBeatId);
     }
 
-    public void recordHeartBeat() {
+    public void recordHeartBeat() throws Exception {
         Random random = new Random();
         int LOW = 20;
         int HIGH = 150;

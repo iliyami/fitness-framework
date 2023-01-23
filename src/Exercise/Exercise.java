@@ -10,18 +10,19 @@ public class Exercise {
     private ExerciseType exerciseType;
     private Muscle targetMuscle;
 
-    public Muscle getTargetMuscle() {
-        return targetMuscle;
-    }
-    public void setTargetMuscle(Muscle targetMuscle) {
-        this.targetMuscle = targetMuscle;
-    }
     public Exercise(int id, String name, String instruction, int popularity, ExerciseType exerciseType, Muscle targetMuscle) {
         this.id = id;
         this.name = name;
         this.instruction = instruction;
         this.popularity = popularity;
         this.exerciseType = exerciseType;
+        this.targetMuscle = targetMuscle;
+    }
+
+    public Muscle getTargetMuscle() {
+        return targetMuscle;
+    }
+    public void setTargetMuscle(Muscle targetMuscle) {
         this.targetMuscle = targetMuscle;
     }
     public int getId() {

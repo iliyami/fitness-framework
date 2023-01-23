@@ -12,7 +12,7 @@ import Measurements.DailyMeasure;
 public class DailyMeasureTest {
     DailyMeasure dailyMeasure;
 
-    public DailyMeasureTest() {
+    public DailyMeasureTest() throws Exception {
         dailyMeasure = new DailyMeasure(1.8, 80);
     }
 

@@ -33,7 +33,7 @@ public class WorkoutHistory {
         return workoutSession;
     }
 
-    private void setWorkoutSession(WorkoutSession workoutSession) {
+    public void setWorkoutSession(WorkoutSession workoutSession) {
         this.workoutSession = workoutSession;
     }
 
@@ -41,7 +41,7 @@ public class WorkoutHistory {
         return timestamp;
     }
 
-    private void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 

@@ -34,11 +34,11 @@ public class WorkoutHistoryController {
         return workoutHistories.add(new WorkoutHistory(session));
     }
 
-    public Boolean updateHistory(int id, WorkoutSession session) {
+    public Boolean updateHistory(int workoutHistoryId, WorkoutSession session) {
         boolean isUpdated = false;
         for (int i = 0; i < workoutHistories.size(); i++) {
             final WorkoutHistory item = workoutHistories.get(i);
-            if (item.getId() == id) {
+            if (item.getId() == workoutHistoryId) {
                 workoutHistories.set(i, item.updateWorkoutHistory(session));
                 isUpdated = true;
             }

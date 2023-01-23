@@ -2,7 +2,7 @@ package Workout;
 
 import Exercise.Exercise;
 
-// when id is set and when it is used?
+// where and how to set id? where is it used?
 // there will be at most one exercise plan per exercise
 
 public class ExercisePlan {

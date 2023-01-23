@@ -2,6 +2,7 @@ package Workout;
 
 import java.util.List;
 
+// where and how to set id?
 public class WorkoutPlan {
     private int id;
     private String name;
@@ -11,6 +12,7 @@ public class WorkoutPlan {
         this.setId(id);
         this.setName(name);
         this.setExercisePlans(exercisePlans);
+        addWorkoutPlanInInventory(this);
     }
 
     public List<ExercisePlan> getExercisePlans() {
@@ -37,12 +39,19 @@ public class WorkoutPlan {
         this.id = id;
     }
 
-    public WorkoutPlan getWorkoutPlanById(int id){
-            return null;
-        }
+    public void editPlan(String name, List<ExercisePlan> exercisePlans){
+        setName(name);
+        setExercisePlans(exercisePlans);
+        UpdateWorkoutPlanInInventory(this);
+    }
 
-    public WorkoutPlan editPlan(
-        WorkoutPlan plan, String name, List<ExercisePlan> exercisePlans){
-            return null;
-        }
+    public void addWorkoutPlanInInventory(WorkoutPlan workoutPlan){
+        workoutPlanInInventory = WorkoutPlanInInventory.getInstance();
+        workoutPlanInInventory.UpdateWorkoutPlan(workoutPlan);
+    }
+
+    public void UpdateWorkoutPlanInInventory(WorkoutPlan workoutPlan){
+        workoutPlanInInventory = WorkoutPlanInInventory.getInstance();
+        workoutPlanInInventory.UpdateWorkoutPlan(workoutPlan);
+    }
 }

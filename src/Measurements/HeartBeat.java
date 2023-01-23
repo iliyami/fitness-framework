@@ -8,15 +8,15 @@ public class HeartBeat {
     private int beatsPerMinute;
     private LocalDateTime dateTime;
 
-    public HeartBeat(int beatsPerMinute, LocalDateTime dateTime) {
+    public HeartBeat(int beatsPerMinute, LocalDateTime dateTime) throws Exception {
         this.id = count++;
         this.setBeatsPerMinute(beatsPerMinute);
         this.dateTime = dateTime;
     }
 
-    public void setBeatsPerMinute(int beatsPerMinute) {
+    public void setBeatsPerMinute(int beatsPerMinute) throws Exception {
         if (beatsPerMinute < 0) {
-            throw new Error("heart beats per minute value must be positive");
+            throw new Exception("heart beats per minute value must be positive");
         }
         this.beatsPerMinute = beatsPerMinute;
     }

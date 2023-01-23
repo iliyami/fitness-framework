@@ -2,7 +2,7 @@ import Measurements.MeasuresManagement;
 import Measurements.DailyMeasure;
 
 public class MockMeasurements {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         DailyMeasure dailyMeasure = new DailyMeasure(1.80, 80);
         dailyMeasure.recordHeartBeat();
         System.out.print("BMI: ");

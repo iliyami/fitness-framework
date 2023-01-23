@@ -14,7 +14,7 @@ public class DailyMeasure {
     private LocalDate date;
     private List<HeartBeat> heartBeatRecords;
 
-    public DailyMeasure(double height, double weight) {
+    public DailyMeasure(double height, double weight) throws Exception {
         this.id = count++;
         this.setHeight(height);
         this.setWeight(weight);
@@ -39,16 +39,16 @@ public class DailyMeasure {
         this.heartBeatRecords.add(heartBeat);
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(double weight) throws Exception {
         if (weight < 0) {
-            throw new Error("weight value must be positive");
+            throw new Exception("weight value must be positive");
         }
         this.weight = weight;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(double height) throws Exception {
         if (height < 0) {
-            throw new Error("height value must be positive");
+            throw new Exception("height value must be positive");
         }
         this.height = height;
     }

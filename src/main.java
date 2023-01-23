@@ -1,13 +1,13 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-import CLIArt.CLIArt;
+import CLI.CLIArt;
 
 public class Main {
 	public static void main(String args[]) throws IOException
 	{
 		final Scanner sc = new Scanner(System.in);
-		System.out.println("The program start running ...");
+		System.out.println("The program start running ...\n");
 		CLIArt.buildMenu();
 		boolean stay = true;
 		while (stay) {

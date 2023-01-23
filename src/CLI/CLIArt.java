@@ -1,4 +1,4 @@
-package CLIArt;
+package CLI;
 
 public class CLIArt {
     public static void buildMenu() {
@@ -20,7 +20,7 @@ public class CLIArt {
 
     private static void buildMenuDesign() {
         System.out.println("         __,                        ,__"                );
-        System.out.println("      __/==+\\  Hell Fitness Club  /+==\\__"            );
+        System.out.println("      __/==+\\  Fire Fitness Club  /+==\\__"            );
         System.out.println("        \"  \"`  =================  '\"  \"\n"          );
         System.out.println("         YOU Train..............You Gain!\n"            );
         System.out.println("                \"Meals Under Wheels\"\n"               );

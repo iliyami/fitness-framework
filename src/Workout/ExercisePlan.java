@@ -46,7 +46,7 @@ public class ExercisePlan {
     }
 
     public void addOrUpdateExercisePlanInInventory(){
-        exercisePlanInventory = ExercisePlanInventory.getInstance();
+        ExercisePlanInventory exercisePlanInventory = ExercisePlanInventory.getInstance();
         exercisePlanInventory.addOrUpdateExercisePlan(this);
     }
 }

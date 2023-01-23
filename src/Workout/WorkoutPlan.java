@@ -46,12 +46,12 @@ public class WorkoutPlan {
     }
 
     public void addWorkoutPlanInInventory(WorkoutPlan workoutPlan){
-        workoutPlanInInventory = WorkoutPlanInInventory.getInstance();
+        WorkoutPlanInventory workoutPlanInInventory = WorkoutPlanInventory.getInstance();
         workoutPlanInInventory.UpdateWorkoutPlan(workoutPlan);
     }
 
     public void UpdateWorkoutPlanInInventory(WorkoutPlan workoutPlan){
-        workoutPlanInInventory = WorkoutPlanInInventory.getInstance();
+        WorkoutPlanInventory workoutPlanInInventory = WorkoutPlanInventory.getInstance();
         workoutPlanInInventory.UpdateWorkoutPlan(workoutPlan);
     }
 }

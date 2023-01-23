@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import Exercise.Exercise;
-import Exercise.ExerciseType;
+import Exercise.*;
 import Workout.WorkoutPlan;
 import Workout.WorkoutSession;
 import Workout.ExercisePlan;
@@ -13,7 +12,7 @@ import Workout.MuscularExercisePlan;
 public class MockExercise {
     public static void main(String[] args) throws InterruptedException {
         Exercise deadliftExercise = new Exercise(
-			1, "deadlift", "how to do deadlift explanation", 90, ExerciseType.MUSCULAR
+			1, "deadlift", "how to do deadlift explanation", 90, ExerciseType.MUSCULAR, new Muscle("Deltoid - Lats", BodyPart.UPPERBODY)
 		);
 		MuscularExercisePlan deadliftExercisePlan = new MuscularExercisePlan(
 			1, 20, deadliftExercise, 10, 3, LocalTime.of(0,1,30)

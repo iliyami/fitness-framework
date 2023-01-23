@@ -1,6 +1,6 @@
 package Exercise;
 
-enum BodyPart {
+public enum BodyPart {
     UPPERBODY,
     LOWERBODY,
 }

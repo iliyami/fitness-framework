@@ -8,13 +8,21 @@ public class Exercise {
     private String instruction;
     private Integer popularity;
     private ExerciseType exerciseType;
+    private Muscle targetMuscle;
 
-    public Exercise(int id, String name, String instruction, int popularity, ExerciseType exerciseType) {
+    public Muscle getTargetMuscle() {
+        return targetMuscle;
+    }
+    public void setTargetMuscle(Muscle targetMuscle) {
+        this.targetMuscle = targetMuscle;
+    }
+    public Exercise(int id, String name, String instruction, int popularity, ExerciseType exerciseType, Muscle targetMuscle) {
         this.id = id;
         this.name = name;
         this.instruction = instruction;
         this.popularity = popularity;
         this.exerciseType = exerciseType;
+        this.targetMuscle = targetMuscle;
     }
     public int getId() {
         return id;
@@ -43,11 +51,12 @@ public class Exercise {
     public void setExerciseType(ExerciseType exerciseType) {
         this.exerciseType = exerciseType;
     }
-    public boolean updateExercise(String name, String instruction, int popularity, ExerciseType exerciseType) {
+    public boolean updateExercise(String name, String instruction, int popularity, ExerciseType exerciseType, Muscle targetMuscle) {
         this.name = (name == null) ? this.name : name;
         this.instruction = (instruction == null) ? this.instruction : instruction;
         this.popularity = popularity;
         this.exerciseType = exerciseType;
+        this.targetMuscle = targetMuscle;
         return true;
     }
 }

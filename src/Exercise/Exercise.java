@@ -1,4 +1,7 @@
 package Exercise;
+
+import java.time.LocalDateTime;
+
 /**
  * Exercise
  */
@@ -17,6 +20,12 @@ public class Exercise {
         this.popularity = popularity;
         this.exerciseType = exerciseType;
         this.targetMuscle = targetMuscle;
+    }
+
+    public static Exercise createExercise(String name, String instruction, int popularity, ExerciseType exerciseType, Muscle targetMuscle) {
+        final Exercise newExercise = new Exercise(LocalDateTime.now().hashCode(), name, instruction, popularity, exerciseType, targetMuscle);
+        // TODO add to inventory
+        return newExercise;
     }
 
     public Muscle getTargetMuscle() {

@@ -57,6 +57,12 @@ public class ExerciseTest {
     }
 
     @Test
+    public void testCreateExercise() {
+
+        assertNotEquals(mockExercise.getId(), Exercise.createExercise("Test", null, 0, null, null));
+    }
+
+    @Test
     public void testExerciseType() {
         final ExerciseType newExerciseType = ExerciseType.CARDIOVASCULAR;
         mockExercise.setExerciseType(newExerciseType);

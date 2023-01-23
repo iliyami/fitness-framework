@@ -3,9 +3,16 @@ package SearchEngine;
 import java.util.List;
 
 import Exercise.Exercise;
+import Exercise.ExerciseInventory;
 import Exercise.ExerciseType;
 
 public class SearchExerciseController {
+    public ExerciseInventory exerciseInventory;
+
+    public SearchExerciseController(ExerciseInventory exerciseInventory) {
+        this.exerciseInventory = exerciseInventory;
+    }
+
     public Exercise getExerciseById(int id){
         return null;
     }

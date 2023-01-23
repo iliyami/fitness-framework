@@ -31,7 +31,14 @@ public abstract class Notification {
         return this.dateTime;
     }
 
-    public abstract void notifySubscribers();
+    public void printNotificationInfo() {
+        System.out.printf("notification id: %d", this.id);
+        System.out.printf("user id: %d", this.userId);
+        System.out.printf("workout plan id: %d", this.workoutPlanId);
+        System.out.printf("notification date time: %s", this.dateTime);
+    }
+
+    public abstract void update();
 }
 
 class SMSNotification extends Notification {
@@ -42,8 +49,10 @@ class SMSNotification extends Notification {
         this.phoneNumber = phoneNumber;
     }
 
-    public void notifySubscribers() {
-        return;
+    public void update() {
+        System.out.println("sending SMS notification:");
+        System.out.printf("user phone number: %s", this.phoneNumber);
+        this.printNotificationInfo();
     }
 }
 
@@ -55,8 +64,10 @@ class EmailNotification extends Notification {
         this.email = email;
     }
 
-    public void notifySubscribers() {
-        return;
+    public void update() {
+        System.out.println("sending email notification:");
+        System.out.printf("user email: %s", this.email);
+        this.printNotificationInfo();
     }
 }
 
@@ -68,8 +79,9 @@ class PushNotification extends Notification {
         this.deviceId = deviceId;
     }
 
-    public void notifySubscribers() {
-        return;
+    public void update() {
+        System.out.println("sending push notification:");
+        System.out.printf("user device id: %s", this.deviceId);
+        this.printNotificationInfo();
     }
 }
-

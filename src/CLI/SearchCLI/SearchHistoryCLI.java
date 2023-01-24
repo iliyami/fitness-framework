@@ -8,6 +8,7 @@ import Exercise.Exercise;
 import Exercise.ExerciseInventory;
 import History.WorkoutHistory;
 import SearchEngine.SearchWorkoutHistoryController;
+import Utils.IOUtils;
 
 
 public class SearchHistoryCLI {
@@ -18,7 +19,7 @@ public class SearchHistoryCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                 	SearchByIdParser(sc);

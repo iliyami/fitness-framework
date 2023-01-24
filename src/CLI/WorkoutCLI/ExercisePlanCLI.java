@@ -6,6 +6,7 @@ import java.util.Scanner;
 import Exercise.Exercise;
 import Exercise.ExerciseInventory;
 import Exercise.ExerciseType;
+import Utils.IOUtils;
 import Workout.CardioExercisePlan;
 import Workout.ExercisePlan;
 import Workout.ExercisePlanInventory;
@@ -19,7 +20,7 @@ public class ExercisePlanCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                 	CreateExercisePlanParser(sc);

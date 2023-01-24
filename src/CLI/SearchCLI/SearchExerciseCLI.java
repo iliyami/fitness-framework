@@ -6,6 +6,7 @@ import java.util.Scanner;
 import Exercise.Exercise;
 import Exercise.ExerciseType;
 import SearchEngine.SearchExerciseController;
+import Utils.IOUtils;
 
 
 public class SearchExerciseCLI {
@@ -16,7 +17,7 @@ public class SearchExerciseCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                 	SearchByIdParser(sc);

@@ -2,6 +2,8 @@ package CLI.SearchCLI;
 
 import java.util.Scanner;
 
+import Utils.IOUtils;
+
 
 public class SearchCLI {
     public static void callSearchTools() {
@@ -11,7 +13,7 @@ public class SearchCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                 	SearchExerciseCLI.callSearchExerciseTools();

@@ -2,6 +2,8 @@ package CLI.WorkoutCLI;
 
 import java.util.Scanner;
 
+import Utils.IOUtils;
+
 public class WorkoutCLI {
     public static void callWorkoutTools() {
         boolean stay = true;
@@ -10,7 +12,7 @@ public class WorkoutCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                 	ExercisePlanCLI.callExercisePlanTools();

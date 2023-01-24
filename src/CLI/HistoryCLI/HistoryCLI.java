@@ -7,6 +7,7 @@ import CLI.CLIArt;
 import History.WorkoutHistory;
 import History.WorkoutHistoryController;
 import SearchEngine.SearchWorkoutHistoryController;
+import Utils.IOUtils;
 
 public class HistoryCLI {
     public static void callHistoryTools() {
@@ -16,7 +17,7 @@ public class HistoryCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                     viewWorkoutHistories(sc);

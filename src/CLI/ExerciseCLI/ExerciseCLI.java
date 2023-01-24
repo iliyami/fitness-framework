@@ -10,6 +10,7 @@ import Exercise.ExerciseInventory;
 import Exercise.ExerciseType;
 import Exercise.Muscle;
 import SearchEngine.SearchExerciseController;
+import Utils.IOUtils;
 
 public class ExerciseCLI {
     public static void callExerciseTools() {
@@ -19,7 +20,7 @@ public class ExerciseCLI {
             BuildMenuItems();
             System.out.print("   ");
             final String menuItem = sc.next();
-            sc.nextLine();
+            IOUtils.clearScannerBuffer(sc);
             switch (menuItem.charAt(0)) {
                 case '1':
                     createExerciseCLI(sc);

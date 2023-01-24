@@ -64,4 +64,8 @@ public class CLIArt {
         System.out.println("               |==|");
         System.out.println("               \\__/");
     }
+
+    public static void divider() {
+        System.out.println("   ===============================================================\n");
+    }
 }

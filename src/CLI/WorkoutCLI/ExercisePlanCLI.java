@@ -66,7 +66,7 @@ public class ExercisePlanCLI {
             ExerciseType type = CheckExerciseType(sc);
             if(type.equals(ExerciseType.CARDIOVASCULAR)) {
             	System.out.println(
-    	                "  args: weight, exercise id, calAmount, interval, duration");
+    	                "  args: weight, exerciseID, calAmount, interval, duration[eg:" + LocalTime.now().toString() + "]");
     	        System.out.print("  ");
     	        sc.reset();
     	        final String args = sc.nextLine();
@@ -84,20 +84,16 @@ public class ExercisePlanCLI {
             }
             if(type.equals(ExerciseType.MUSCULAR)) {
             	System.out.println(
-    	                "  args: weight, exercise id, rep, set, rest");
+    	                "  args: weight exerciseID rep set rest[eg:" + LocalTime.now().toString() + "]");
     	        System.out.print("  ");
-    	        sc.reset();
-    	        final String args = sc.nextLine();
-    	        
-    	        final String[] argsArray = args.split(" ");
-    	        if (argsArray.length != 5) {
+    	        final String[] args = sc.nextLine().split(" ");
+    	        if (args.length != 5) {
     	            throw new Exception("  Bad input! Need 5 args.");
     	        }
-    	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
-    	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[1]));
+    	        final Exercise exercise = ExerciseInventory.getInstance().getExerciseById(Integer.parseInt(args[1]));
     	        final ExercisePlan newExercisePlan = new MuscularExercisePlan(
-    	        		 Integer.parseInt(argsArray[0]), exercise, Integer.parseInt(argsArray[2]),
-    	        		Integer.parseInt(argsArray[3]), LocalTime.parse(argsArray[4]));
+    	        		 Integer.parseInt(args[0]), exercise, Integer.parseInt(args[2]),
+    	        		Integer.parseInt(args[3]), LocalTime.parse(args[4]));
     	        System.out.println("  Exercise Plan " + newExercisePlan.getId() + " Created Successfully!\n");		
             }
             
@@ -153,51 +149,44 @@ public class ExercisePlanCLI {
             ExerciseType type = CheckExerciseType(sc);
             if(type.equals(ExerciseType.CARDIOVASCULAR)) {
             	System.out.println(
-    	                "  args: exercise plan id, weight, exercise id, calAmount, interval, duration");
+    	                "  args: planID weight exerciseID calAmount interval duration[eg:" + LocalTime.now().toString() + "]");
     	        System.out.print("  ");
     	        sc.reset();
-    	        final String args = sc.nextLine();
-    	        
-    	        final String[] argsArray = args.split(" ");
-    	        if (argsArray.length != 6) {
+    	        final String[] args = sc.nextLine().split(" ");
+    	        if (args.length != 6) {
     	            throw new Exception("  Bad input! Need 6 args.");
     	        }
     	        
-    	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
-    	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[2]));
-    	        
+    	        final Exercise exercise = ExerciseInventory.getInstance().getExerciseById(Integer.parseInt(args[2]));
     	        final ExercisePlanInventory exercisePlanInventory = ExercisePlanInventory.getInstance();
-    	        CardioExercisePlan exercisePlan = (CardioExercisePlan) exercisePlanInventory.getExercisePlanById(Integer.parseInt(argsArray[0]));
+    	        CardioExercisePlan exercisePlan = (CardioExercisePlan) exercisePlanInventory.getExercisePlanById(Integer.parseInt(args[0]));
     	        
     	        exercisePlan.updateExercisePlan(
-    	        		Integer.parseInt(argsArray[1]), exercise, Integer.parseInt(argsArray[3]),
-    	        		Integer.parseInt(argsArray[4]), LocalTime.parse(argsArray[5]));
+    	        		Integer.parseInt(args[1]), exercise, Integer.parseInt(args[3]),
+    	        		Integer.parseInt(args[4]), LocalTime.parse(args[5]));
     	        
-    	        System.out.println("  Exercise Plan " + argsArray[0] + " Updated Successfully!\n");		
+    	        System.out.println("  Exercise Plan " + args[0] + " Updated Successfully!\n");		
             }
             if(type.equals(ExerciseType.MUSCULAR)) {
             	System.out.println(
-    	                "  args: exercise plan id, weight, exercise id, rep, set, rest");
+    	                "  args: planID weight exerciseID rep set rest[eg:" + LocalTime.now().toString() + "]");
     	        System.out.print("  ");
-    	        sc.reset();
-    	        final String args = sc.nextLine();
-    	        
-    	        final String[] argsArray = args.split(" ");
-    	        if (argsArray.length != 6) {
+    	        final String[] args = sc.nextLine().split(" ");
+    	        if (args.length != 6) {
     	            throw new Exception("  Bad input! Need 6 args.");
     	        }
     	        
     	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
-    	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[2]));
+    	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(args[2]));
     	        
     	        final ExercisePlanInventory exercisePlanInventory = ExercisePlanInventory.getInstance();
-    	        MuscularExercisePlan exercisePlan = (MuscularExercisePlan) exercisePlanInventory.getExercisePlanById(Integer.parseInt(argsArray[0]));
+    	        MuscularExercisePlan exercisePlan = (MuscularExercisePlan) exercisePlanInventory.getExercisePlanById(Integer.parseInt(args[0]));
     	        
     	        exercisePlan.updateExercisePlan(
-    	        		Integer.parseInt(argsArray[1]), exercise, Integer.parseInt(argsArray[3]),
-    	        		Integer.parseInt(argsArray[4]), LocalTime.parse(argsArray[5]));
+    	        		Integer.parseInt(args[1]), exercise, Integer.parseInt(args[3]),
+    	        		Integer.parseInt(args[4]), LocalTime.parse(args[5]));
     	       
-    	        System.out.println("  Exercise Plan " + argsArray[0] + " Updated Successfully!\n");	
+    	        System.out.println("  Exercise Plan " + args[0] + " Updated Successfully!\n");	
             }
             
         } catch (Exception e) {
@@ -211,16 +200,14 @@ public class ExercisePlanCLI {
             System.out.println("  args: exercise plan id");
 	        System.out.print("  ");
 	        sc.reset();
-	        final String args = sc.nextLine();
-	        
-	        final String[] argsArray = args.split(" ");
-	        if (argsArray.length != 1) {
+	        final String[] args = sc.nextLine().split(" ");
+	        if (args.length != 1) {
 	            throw new Exception("  Bad input! Need 1 arg1.");
 	        }
     	        
         	final ExercisePlanInventory exercisePlanInventory = ExercisePlanInventory.getInstance();
 	        exercisePlanInventory.deleteExercisePlan(
-	        		exercisePlanInventory.getExercisePlanById(Integer.parseInt(argsArray[0])));
+	        		exercisePlanInventory.getExercisePlanById(Integer.parseInt(args[0])));
     	    System.out.println("  Exercise Plan Deleted Successfully!\n");
         } catch (Exception e) {
             System.out.println(e + "\n");

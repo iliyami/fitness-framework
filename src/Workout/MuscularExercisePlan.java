@@ -1,5 +1,6 @@
 package Workout;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import Exercise.Exercise;
@@ -10,8 +11,8 @@ public class MuscularExercisePlan extends ExercisePlan {
     private LocalTime rest;
 
     public MuscularExercisePlan(
-        int id, int weight, Exercise exercise, int rep, int set, LocalTime rest){
-            super(id, weight, exercise);            
+       int weight, Exercise exercise, int rep, int set, LocalTime rest){
+            super(LocalDateTime.now().hashCode(), weight, exercise);    
             this.setRep(rep);
             this.setRest(rest);
             this.setSet(set);

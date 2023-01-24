@@ -10,6 +10,10 @@ public class WorkoutSessionInventory {
     private static WorkoutSessionInventory singleWorkoutSessionInventory = null;
     private List<WorkoutSession> workoutSessions = new ArrayList<WorkoutSession>();
   
+    public List<WorkoutSession> getWorkoutSessions() {
+        return workoutSessions;
+    }
+
     public static WorkoutSessionInventory getInstance()
     {
         if (singleWorkoutSessionInventory == null){
@@ -35,7 +39,9 @@ public class WorkoutSessionInventory {
 
     public void addOrUpdateWorkoutSession(WorkoutSession workoutSession){
     	WorkoutSession existedworkoutSession = getWorkoutSessionById(workoutSession.getId());
-        deleteWorkoutSession(existedworkoutSession);
+        if (existedworkoutSession != null) {
+            deleteWorkoutSession(existedworkoutSession);
+        }
         this.workoutSessions.add(workoutSession);
     }
 

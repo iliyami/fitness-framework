@@ -1,9 +1,5 @@
 package SearchEngine;
 
-import java.util.List;
-
-import Exercise.Exercise;
-import Workout.WorkoutPlan;
 
 public class SearchEnginController {
     private SearchExerciseController searchExerciseController;

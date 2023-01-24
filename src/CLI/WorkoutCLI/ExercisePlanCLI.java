@@ -78,7 +78,7 @@ public class ExercisePlanCLI {
     	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
     	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[1]));
     	        int id = exerciseInventory.getExercises().size();
-    	        final CardioExercisePlan exercisePlan = new CardioExercisePlan(
+    	        new CardioExercisePlan(
     	        		id, Integer.parseInt(argsArray[0]), exercise, Integer.parseInt(argsArray[2]),
     	        		Integer.parseInt(argsArray[3]), LocalTime.parse(argsArray[4]));
     	        System.out.println("  Exercise Plan " + id + " Created Successfully!\n");		
@@ -97,7 +97,7 @@ public class ExercisePlanCLI {
     	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
     	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[1]));
     	        int id = exerciseInventory.getExercises().size();
-    	        final MuscularExercisePlan exercisePlan = new MuscularExercisePlan(
+    	        new MuscularExercisePlan(
     	        		id, Integer.parseInt(argsArray[0]), exercise, Integer.parseInt(argsArray[2]),
     	        		Integer.parseInt(argsArray[3]), LocalTime.parse(argsArray[4]));
     	        System.out.println("  Exercise Plan " + id + " Created Successfully!\n");		

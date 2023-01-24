@@ -2,10 +2,6 @@ package CLI.WorkoutCLI;
 
 import java.util.Scanner;
 
-import CLI.WorkoutCLI.ExercisePlanCLI;
-import CLI.WorkoutCLI.WorkoutPlanCLI;
-import CLI.WorkoutCLI.WorkoutSessionCLI;
-
 public class WorkoutCLI {
     public static void callWorkoutTools() {
         boolean stay = true;

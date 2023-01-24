@@ -8,7 +8,6 @@ import Exercise.Exercise;
 import Exercise.ExerciseType;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import History.WorkoutHistory;
 import History.WorkoutHistoryController;
@@ -20,6 +19,11 @@ import Workout.WorkoutPlan;
 public class SearchWorkoutHistoryController {
     private WorkoutHistoryController workoutHistoryController;
 
+    public SearchWorkoutHistoryController() {
+    	WorkoutHistoryController workoutHistoryController = WorkoutHistoryController.getInstance();
+        setWorkoutHistoryController(workoutHistoryController);
+    }
+    
     public SearchWorkoutHistoryController(WorkoutHistoryController workoutHistoryController) {
         setWorkoutHistoryController(workoutHistoryController);
     }

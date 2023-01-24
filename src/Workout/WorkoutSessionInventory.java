@@ -4,7 +4,6 @@ package Workout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import Exercise.Exercise;
 
 // using singleton
 public class WorkoutSessionInventory {

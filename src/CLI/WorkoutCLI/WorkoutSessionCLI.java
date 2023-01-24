@@ -1,15 +1,7 @@
 package CLI.WorkoutCLI;
 
-import java.time.LocalTime;
 import java.util.Scanner;
 
-import Exercise.Exercise;
-import Exercise.ExerciseInventory;
-import Exercise.ExerciseType;
-import Workout.CardioExercisePlan;
-import Workout.ExercisePlan;
-import Workout.ExercisePlanInventory;
-import Workout.MuscularExercisePlan;
 import Workout.WorkoutPlan;
 import Workout.WorkoutPlanInventory;
 import Workout.WorkoutSession;
@@ -35,6 +27,9 @@ public class WorkoutSessionCLI {
                 	FinishWorkoutSessionParser(sc);
                     break;
                 case '4':
+                	ViewWorkoutSessionParser(sc);
+                	break;
+                case '5':
                     stay = false;
                     break;
                 default:
@@ -58,7 +53,7 @@ public class WorkoutSessionCLI {
 	        WorkoutPlanInventory workoutPlanInventory = WorkoutPlanInventory.getInstance();
 	        WorkoutPlan workoutPlan = workoutPlanInventory.getWorkoutPlanById(Integer.parseInt(argsArray[0]));
 	        WorkoutSessionInventory workoutSessionInventory = WorkoutSessionInventory.getInstance();
-	        WorkoutSession workoutSession = new WorkoutSession(workoutSessionInventory.workoutSessionsCount(), workoutPlan);
+	        new WorkoutSession(workoutSessionInventory.workoutSessionsCount(), workoutPlan);
 	        System.out.println("  Workout Session Created Successfully!\n");
 	        
         } catch (Exception e) {
@@ -110,12 +105,35 @@ public class WorkoutSessionCLI {
         }
     }
     
+    private static void ViewWorkoutSessionParser(final Scanner sc) {
+    	try {
+    		System.out.println(
+	                "  args: workout session id");
+	        System.out.print("  ");
+	        sc.reset();
+	        final String args = sc.nextLine();
+	        
+	        final String[] argsArray = args.split(" ");
+	        if (argsArray.length != 1) {
+	            throw new Exception("  Bad input! Need 1 arg.");
+	        }
+	        WorkoutSessionInventory workoutSessionInventory = WorkoutSessionInventory.getInstance();
+	        WorkoutSession workoutSession = workoutSessionInventory.getWorkoutSessionById(Integer.parseInt(argsArray[0]));
+	        
+	        System.out.println("  " + workoutSession.toString() +"\n");
+	        
+        } catch (Exception e) {
+            System.out.println(e + "\n");
+        }
+    }
+    
 
 
     private static void BuildMenuItems() {
         System.out.println("  [1] Create Workout Session                         ");
         System.out.println("  [2] Start Workout Session                          ");
         System.out.println("  [3] Finish Workout Session                         ");
-        System.out.println("  [4] Back                                           ");
+        System.out.println("  [4] view Workout Session                           ");
+        System.out.println("  [5] Back                                           ");
     }
 }

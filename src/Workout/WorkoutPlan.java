@@ -2,7 +2,6 @@ package Workout;
 
 import java.util.List;
 
-// where and how to set id?
 public class WorkoutPlan {
     private int id;
     private String name;

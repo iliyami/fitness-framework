@@ -17,6 +17,10 @@ public class  WorkoutPlanInventory {
         }
         return singleWorkoutPlanInventory;
     }
+    
+    public int workoutPlansCount() {
+    	return this.workoutPlans.size();
+    }
 
     public WorkoutPlan getWorkoutPlanById(int id){
         Iterator<WorkoutPlan> iterator = this.workoutPlans.iterator();

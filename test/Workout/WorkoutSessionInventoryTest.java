@@ -15,6 +15,7 @@ import Workout.WorkoutSessionInventory;
 
 public class WorkoutSessionInventoryTest {
     public WorkoutSessionInventoryTest() {
+        workoutSessionInventory.getWorkoutSessions().clear();
         mocWorkoutSession = new WorkoutSession(0, new WorkoutPlan(0, "Test", exercisePlans));
     }
 

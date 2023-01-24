@@ -2,10 +2,14 @@ package test.Workout;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
-import WorkoutPlan.WorkoutPlan;
-import WorkoutPlan.WorkoutPlanInventory;
+import Exercise.*;
+import Workout.*;
 
 public class WorkoutPlanTest {
 
@@ -18,58 +22,61 @@ public class WorkoutPlanTest {
         );
         List<ExercisePlan> exercisePlans = new ArrayList<ExercisePlan>();
         exercisePlans.add(deadliftExercisePlan);
-        WorkoutPlanInventory workoutPlanInventory = new WorkoutPlanInventory();
     }
 
     Exercise deadliftExercise;
     MuscularExercisePlan deadliftExercisePlan;
-    List<ExercisePlan> exercisePlans;
-    WorkoutPlanInventory workoutPlanInventory;
+    List<ExercisePlan> exercisePlans = new ArrayList<ExercisePlan>();
+    WorkoutPlanInventory workoutPlanInventory = WorkoutPlanInventory.getInstance();
 
     @Test
     public void testCreateWorkoutPlan() {
         WorkoutPlan workoutPlan = new WorkoutPlan(
-            1, 'my workout', exercisePlans
+            1, "my workout", exercisePlans
         );
+        workoutPlan.addWorkoutPlanInInventory(workoutPlan);
+        assertEquals(workoutPlan, workoutPlanInventory.getWorkoutPlanById(workoutPlan.getId()));
     }
 
     @Test
     public void testWorkoutPlanGetters() {
         WorkoutPlan workoutPlan = new WorkoutPlan(
-            1, 'my workout', exercisePlans
+            1, "my workout", exercisePlans
         );
         assertEquals(workoutPlan.getId(), 1);
-        assertEquals(workoutPlan.getName(), 'my workout');
-        assertEquals(workoutPlan.getExercisePlans().Length(), 1);
+        assertEquals(workoutPlan.getName(), "my workout");
+        assertEquals(0, workoutPlan.getExercisePlans().size());
     }
 
     @Test
     public void testUpdateWorkoutPlan() {
         WorkoutPlan workoutPlan = new WorkoutPlan(
-            1, 'my workout', exercisePlans
+            1, "my workout", exercisePlans
         );
-        workoutPlan.editPlan('new workout', exercisePlans)
+        final String newName = "new workout";
+        workoutPlan.editPlan(newName, exercisePlans);
         assertEquals(workoutPlan.getId(), 1);
-        assertEquals(workoutPlan.getName(), 'new workout');
+        assertEquals(workoutPlan.getName(), newName);
     }
 
     @Test
     public void testgetWorkoutPlan() {
         WorkoutPlan workoutPlan = new WorkoutPlan(
-            1, 'my workout', exercisePlans
+            1, "my workout", exercisePlans
         );
-        foundWorkoutPlan = workoutPlanInventory.getWorkoutPlanById(1)
+        final WorkoutPlan foundWorkoutPlan = workoutPlanInventory.getWorkoutPlanById(1);
         assertEquals(workoutPlan, foundWorkoutPlan);
     }
 
     @Test
     public void testdeleteWorkoutPlan() {
         WorkoutPlan workoutPlan = new WorkoutPlan(
-            1, 'my workout', exercisePlans
+            1, "my workout", exercisePlans
         );
+        workoutPlan.addWorkoutPlanInInventory(workoutPlan);
+        assertEquals(workoutPlan, workoutPlanInventory.getWorkoutPlanById(workoutPlan.getId()));
         workoutPlanInventory.deleteWorkoutPlan(workoutPlan);
-        foundWorkoutPlan = workoutPlanInventory.getWorkoutPlanById(1)
-        assertEquals(foundWorkoutPlan, null);
+        assertEquals(null, workoutPlanInventory.getWorkoutPlanById(workoutPlan.getId()));
     }
 
 }

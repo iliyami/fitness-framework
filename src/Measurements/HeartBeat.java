@@ -32,4 +32,11 @@ public class HeartBeat {
     public LocalDateTime getDateTime() {
         return this.dateTime;
     }
+
+    @Override
+    public String toString() {
+        String result = "Heart rate info: ";
+        result += String.format("id: %d, beatsPerMinutes: %d, dateTime: %s\n", this.id, this.beatsPerMinute, this.getDateTime());
+        return result;
+    }
 }

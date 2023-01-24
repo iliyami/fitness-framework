@@ -42,7 +42,10 @@ public class MeasuresManagement {
         this.dailyMeasures.add(dailyMeasure);
     }
 
-    public void removeDailyMeasure(int dailyMeasureId) {
+    public boolean removeDailyMeasure(int dailyMeasureId) {
+        int initialSize = this.dailyMeasures.size();
         this.dailyMeasures.removeIf(dailyMeasure -> dailyMeasure.getId() == dailyMeasureId);
+        int finalSize = this.dailyMeasures.size();
+        return finalSize < initialSize;
     }
 }

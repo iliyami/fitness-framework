@@ -36,6 +36,7 @@ public class DailyMeasure {
         int HIGH = 150;
         int beatsPerMinute = random.nextInt(HIGH - LOW) + LOW;
         HeartBeat heartBeat = new HeartBeat(beatsPerMinute, LocalDateTime.now());
+        System.out.printf("heart beat recorded... bps: %d\n", beatsPerMinute);
         this.heartBeatRecords.add(heartBeat);
     }
 
@@ -75,6 +76,18 @@ public class DailyMeasure {
 
     public double getBMI() {
         return this.weight / (this.height * this.height);
+    }
+
+    @Override
+    public String toString() {
+        String result = "Daily measure info: ";
+        result += String.format("id: %d, height: %f, weight: %f, BMI: %f\n", this.id, this.height, this.weight, this.getBMI());
+        if (!this.getHeartBeatRecords().isEmpty()) {
+            for (HeartBeat heartBeat : heartBeatRecords) {
+                result += heartBeat.toString() + "\n";
+            }
+        }
+        return result;
     }
 
 }

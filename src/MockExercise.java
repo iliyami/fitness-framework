@@ -15,7 +15,7 @@ public class MockExercise {
 			1, "deadlift", "how to do deadlift explanation", 90, ExerciseType.MUSCULAR, new Muscle("Deltoid - Lats", BodyPart.UPPERBODY)
 		);
 		MuscularExercisePlan deadliftExercisePlan = new MuscularExercisePlan(
-			1, 20, deadliftExercise, 10, 3, LocalTime.of(0,1,30)
+			 20, deadliftExercise, 10, 3, LocalTime.of(0,1,30)
 		);
 
         List<ExercisePlan> exercisePlans = new ArrayList<ExercisePlan>();

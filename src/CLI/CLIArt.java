@@ -4,10 +4,10 @@ public class CLIArt {
     public static void buildMenu() {
         buildPerson();
         buildMenuDesign();
-        buildMenuItems();
     }
 
-    private static void buildMenuItems() {
+    public static void buildMenuItems() {
+        System.out.println("---------------------------------------------------"    );
         System.out.println("[1] Exercise                                      |");
         System.out.println("[2] Workout                                       |");
         System.out.println("[3] Measurement                                   |");
@@ -25,7 +25,6 @@ public class CLIArt {
         System.out.println("         YOU Train..............You Gain!\n"            );
         System.out.println("                \"Meals Under Wheels\"\n"               );
         System.out.println("                     🔥Start🔥\n"                        );
-        System.out.println("---------------------------------------------------"    );
     }
 
     private static void buildPerson() {
@@ -63,5 +62,9 @@ public class CLIArt {
         System.out.println("               |oo|           \\__.//___)");
         System.out.println("               |==|");
         System.out.println("               \\__/");
+    }
+
+    public static void divider() {
+        System.out.println("   ===============================================================\n");
     }
 }

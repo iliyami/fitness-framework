@@ -56,4 +56,9 @@ public class WorkoutSession {
         this.setFinishTime(LocalDateTime.now());
         System.out.println("Session finished...");
     }
+
+    @Override
+    public String toString() {
+        return "WorkoutSession [plan=" + plan + ", startTime=" + startTime + ", finishTime=" + finishTime + "]";
+    }
 }

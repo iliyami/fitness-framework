@@ -10,6 +10,10 @@ public class ExerciseInventory {
     private static ExerciseInventory singleExerciseInventory = null;
     private List<Exercise> exercises = new ArrayList<Exercise>();
   
+    public List<Exercise> getExercises() {
+        return exercises;
+    }
+
     public static ExerciseInventory getInstance()
     {
         if (singleExerciseInventory == null){
@@ -46,7 +50,7 @@ public class ExerciseInventory {
         this.exercises.add(exercise);
     }
 
-    public void deleteExercise(Exercise exercise){
-        exercises.remove(exercise);
+    public boolean deleteExercise(Exercise exercise){
+        return exercises.remove(exercise);
     }
 }

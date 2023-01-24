@@ -22,6 +22,10 @@ public class SearchWorkoutHistoryController {
     private WorkoutHistoryController workoutHistoryController;
     private WorkoutHistoryInvertory workoutHistoryInvertory = WorkoutHistoryInvertory.getInstance();
 
+    public SearchWorkoutHistoryController(WorkoutHistoryController workoutHistoryController) {
+        setWorkoutHistoryController(workoutHistoryController);
+    }
+
     public WorkoutHistoryController getWorkoutHistoryController() {
         return workoutHistoryController;
     }
@@ -142,7 +146,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesFilteredByWeight(float weight){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             WorkoutPlan workoutPlan = workoutHistory.getWorkoutSession().getPlan();

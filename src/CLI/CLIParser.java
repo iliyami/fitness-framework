@@ -10,12 +10,13 @@ import CLI.SearchCLI.SearchCLI;
 import CLI.WorkoutCLI.WorkoutCLI;
 
 public class CLIParser {
-    public static void buildMenu() {
+    public static void RunCLIParser() {
         System.out.println("The program start running ...\n");
         final Scanner sc = new Scanner(System.in);
         CLIArt.buildMenu();
         boolean stay = true;
         while (stay) {
+            CLIArt.buildMenuItems();
             final String menuItem = sc.next();
             switch (menuItem.charAt(0)) {
                 case '1':
@@ -38,7 +39,7 @@ public class CLIParser {
                     break;
                 case '7':
                     stay = false;
-                    System.out.println("\nShutdown the framework successfully\n");
+                    System.out.println("\nClose the framework successfully\n");
                     break;
                 default:
                     System.out.println("Wrong input! Try again.\n");

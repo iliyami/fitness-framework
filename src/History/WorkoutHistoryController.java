@@ -34,6 +34,17 @@ public class WorkoutHistoryController {
         return workoutHistories.add(new WorkoutHistory(session));
     }
 
+    public WorkoutHistory getWorkoutHistoryById(int id){
+        Iterator<WorkoutHistory> iterator = this.workoutHistories.iterator();
+        while (iterator.hasNext()) {
+            WorkoutHistory workoutHistory = iterator.next();
+            if (workoutHistory.getId() == id) {
+                return workoutHistory;
+            }
+        }
+        return null;
+    }
+
     public Boolean updateHistory(int workoutHistoryId, WorkoutSession session) {
         boolean isUpdated = false;
         for (int i = 0; i < workoutHistories.size(); i++) {

@@ -19,4 +19,8 @@ public class Muscle {
     public void setBodyPart(BodyPart bodyPart) {
         this.bodyPart = bodyPart;
     }
+    @Override
+    public String toString() {
+        return "Muscle [name=" + name + ", bodyPart=" + bodyPart + "]";
+    }
 }

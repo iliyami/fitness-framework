@@ -54,4 +54,9 @@ public class WorkoutPlan {
         WorkoutPlanInventory workoutPlanInInventory = WorkoutPlanInventory.getInstance();
         workoutPlanInInventory.UpdateWorkoutPlan(workoutPlan);
     }
+
+    @Override
+    public String toString() {
+        return "WorkoutPlan [id=" + id + ", name=" + name + ", list of exercise plans]";
+    }
 }

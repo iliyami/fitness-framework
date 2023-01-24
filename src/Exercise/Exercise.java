@@ -69,4 +69,10 @@ public class Exercise {
         this.targetMuscle = targetMuscle;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Exercise [id=" + id + ", name=" + name + ", instruction=" + instruction + ", popularity=" + popularity
+                + ", exerciseType=" + exerciseType + ", targetMuscle=" + targetMuscle + "]";
+    }
 }

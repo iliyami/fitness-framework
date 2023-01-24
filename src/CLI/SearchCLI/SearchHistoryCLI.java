@@ -215,7 +215,7 @@ public class SearchHistoryCLI {
     private static void SearchByCalAmountParser(final Scanner sc) {
     	try {
     		System.out.println(
-	                "  args: weight");
+	                "  args: CalAmount");
 	        System.out.print("  ");
 	        sc.reset();
 	        final String args = sc.nextLine();
@@ -238,7 +238,7 @@ public class SearchHistoryCLI {
     private static void SearchByRepsParser(final Scanner sc) {
     	try {
     		System.out.println(
-	                "  args: weight");
+	                "  args: Reps");
 	        System.out.print("  ");
 	        sc.reset();
 	        final String args = sc.nextLine();

@@ -17,6 +17,10 @@ public class WorkoutHistoryInvertory {
         return singleWorkoutHistoryInvertory;
     }
 
+    public List<WorkoutHistory> getWorkoutHistories(){
+        return workoutHistories;
+    }
+
     public WorkoutHistory getWorkoutHistoryById(int id){
         Iterator<WorkoutHistory> iterator = this.workoutHistories.iterator();
         while (iterator.hasNext()) {

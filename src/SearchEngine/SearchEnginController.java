@@ -16,13 +16,4 @@ public class SearchEnginController {
     public SearchWorkoutHistoryController getSearchWorkoutHistoryController() {
         return searchWorkoutHistoryController;
     }
-
-    public List<Exercise> searchExercisesByName(String name){
-        return null;
-    }
-
-    public List<WorkoutPlan> searchWorkoutPlansByName(String name){
-        return null;
-    }
-
 }

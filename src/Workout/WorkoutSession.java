@@ -3,12 +3,24 @@ package Workout;
 import java.time.LocalDateTime;
 
 public class WorkoutSession {
+	private int id;
     private WorkoutPlan plan;
     private LocalDateTime startTime;
     private LocalDateTime finishTime;
+    private WorkoutSessionInventory workoutSessionInventory = WorkoutSessionInventory.getInstance();
 
-    public WorkoutSession(WorkoutPlan plan){
+    public WorkoutSession(int id, WorkoutPlan plan){
+    	this.setId(id);
         this.setPlan(plan);
+        workoutSessionInventory.addOrUpdateWorkoutSession(this);
+    }
+    
+    private void setId(int id) {
+    	this.id = id;
+    }
+    
+    public int getId() {
+    	return this.id;
     }
 
     public void startSession() {

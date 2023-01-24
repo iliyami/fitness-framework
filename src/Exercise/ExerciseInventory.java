@@ -18,6 +18,10 @@ public class ExerciseInventory {
         return singleExerciseInventory;
     }
 
+    public List<Exercise> getExercises(){
+        return exercises;
+    }
+
     public Exercise getExerciseById(int id){
         Iterator<Exercise> iterator = this.exercises.iterator();
         while (iterator.hasNext()) {

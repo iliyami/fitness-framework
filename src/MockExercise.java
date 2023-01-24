@@ -24,11 +24,11 @@ public class MockExercise {
         WorkoutPlan workoutPlan = new WorkoutPlan(1, "plan1", exercisePlans);
 
 		WorkoutSession firstSession = new WorkoutSession(
-			workoutPlan
+			1, workoutPlan
 		);
         
 		firstSession.startSession();
-		TimeUnit.SECONDS.sleep(5);
+		TimeUnit.SECONDS.sleep(1);
 		firstSession.finishSession();
     }
 }

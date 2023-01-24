@@ -18,6 +18,17 @@ public class ExercisePlanInventory {
         }
         return singleExercisePlanInventory;
     }
+    
+    public ExercisePlan getExercisePlanById(int id){
+        Iterator<ExercisePlan> iterator = this.exercisePlans.iterator();
+        while (iterator.hasNext()) {
+            ExercisePlan exercisePlan = iterator.next();
+            if (exercisePlan.getId() == id) {
+                return exercisePlan;
+            }
+        }
+        return null;
+    }
 
     public ExercisePlan getExercisePlanByExercise(Exercise exercise){
         Iterator<ExercisePlan> iterator = this.exercisePlans.iterator();

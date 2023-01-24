@@ -11,6 +11,10 @@ public class ExercisePlanInventory {
     private static ExercisePlanInventory singleExercisePlanInventory = null;
     private List<ExercisePlan> exercisePlans = new ArrayList<ExercisePlan>();
   
+    public List<ExercisePlan> getExercisePlans() {
+        return exercisePlans;
+    }
+
     public static ExercisePlanInventory getInstance()
     {
         if (singleExercisePlanInventory == null){
@@ -43,7 +47,9 @@ public class ExercisePlanInventory {
 
     public void addOrUpdateExercisePlan(ExercisePlan exercisePlan){
         ExercisePlan existedExercisePlan = getExercisePlanByExercise(exercisePlan.getExercise());
-        deleteExercisePlan(existedExercisePlan);
+        if (existedExercisePlan != null) {
+            deleteExercisePlan(existedExercisePlan);
+        }
         this.exercisePlans.add(exercisePlan);
     }
 

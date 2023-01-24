@@ -10,6 +10,10 @@ import History.WorkoutHistoryController;
 public class SearchWorkoutHistoryController {
     private WorkoutHistoryController workoutHistoryController;
 
+    public SearchWorkoutHistoryController(WorkoutHistoryController workoutHistoryController) {
+        setWorkoutHistoryController(workoutHistoryController);
+    }
+
     public WorkoutHistoryController getWorkoutHistoryController() {
         return workoutHistoryController;
     }

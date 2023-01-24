@@ -1,12 +1,15 @@
 package CLI.ExerciseCLI;
 
+import java.util.List;
 import java.util.Scanner;
 
+import CLI.CLIArt;
 import Exercise.BodyPart;
 import Exercise.Exercise;
 import Exercise.ExerciseInventory;
 import Exercise.ExerciseType;
 import Exercise.Muscle;
+import SearchEngine.SearchExerciseController;
 
 public class ExerciseCLI {
     public static void callExerciseTools() {
@@ -49,7 +52,17 @@ public class ExerciseCLI {
             if (argsArray.length != 7) {
                 throw new Exception("  Bad input! Needs 7 args.");
             }
-            //TODO Search exercise list in inventory and update it by id
+            final SearchExerciseController searchExercise = new SearchExerciseController(ExerciseInventory.getInstance());
+            final int exerciseID = Integer.parseInt(argsArray[0]);
+            final Exercise exercise = searchExercise.getExerciseById(exerciseID);
+            if (exercise == null) {
+                throw new Exception("  No Exercises Exist With ID = " + exerciseID);
+            }
+            exercise.updateExercise(argsArray[1], argsArray[2], Integer.parseInt(argsArray[3]), ExerciseType.valueOf(argsArray[4]), new Muscle(argsArray[5], BodyPart.valueOf(argsArray[6])));
+            ExerciseInventory.getInstance().updateExercise(exercise);
+            CLIArt.divider();
+            System.out.println("   \t\t\tExercise " + exercise.getName() + " Updated Successfully!\n");
+            CLIArt.divider();
         } catch (Exception e) {
             handleException(e);
         }
@@ -57,12 +70,19 @@ public class ExerciseCLI {
 
     private static void getExercisesCLI() {
         try {
-            //TODO view list of exercises from the inventory
-
+            final List<Exercise> exercises = ExerciseInventory.getInstance().getExercises();
+            CLIArt.divider();
+            System.out.println("   \t\t\tFound [" + exercises.size() + "] Exercises\n");
+            for (int i = 0; i < exercises.size(); i++) {
+                System.out.println("   Item " + (i + 1) + ") " + exercises.toString() + "\n");
+            }
+            CLIArt.divider();
         } catch (Exception e) {
             handleException(e);
         }
     }
+
+    
 
     private static void handleException(Exception e) {
         System.out.println("  [Handled Exception]" + e + "\n");
@@ -70,11 +90,25 @@ public class ExerciseCLI {
 
     private static void deleteExerciseCLI(final Scanner sc) {
         try {
-            //TODO delete form inventory
-            System.out.println("  [args]: ");
-            
+            System.out.println("  [args]: ExerciseID");
+            System.out.print("  ");
+            final String[] args = sc.nextLine().split(" ");
+            if (args.length != 1) {
+                throw new Exception("  Bad input! Needs 1 arg.");
+            }
+            final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
+            final Exercise exercise = new SearchExerciseController(exerciseInventory).getExerciseById(Integer.parseInt(args[0]));
+            boolean isDeleted = exerciseInventory.deleteExercise(exercise);
+            CLIArt.divider();
+            if (isDeleted) {
+                System.out.println("   \t\t\tExercise " + exercise.getName() + " Deleted Successfully!\n");
+            } else {
+                System.out.println("  \t\t\tDoesn't Exist!\n");
+            }
+            CLIArt.divider();
         } catch (Exception e) {
             handleException(e);
+            System.out.print("  ");
         }
     }
 
@@ -83,7 +117,6 @@ public class ExerciseCLI {
             System.out.println(
                     "  [args]: Name Instruction Popularity ExerciseType[MUSCULAR,CARDIOVASCULAR] MuscleName BodyPart[UPPERBODY,LOWERBODY]");
             System.out.print("  ");
-            sc.reset();
             final String args = sc.nextLine();
             final String[] argsArray = args.split(" ");
             if (argsArray.length != 6) {
@@ -93,7 +126,9 @@ public class ExerciseCLI {
             final Exercise newExercise = Exercise.createExercise(argsArray[0], argsArray[1],
                     Integer.parseInt(argsArray[2]), ExerciseType.valueOf(argsArray[3]), newMuscle);
             ExerciseInventory.getInstance().addExercise(newExercise);
-            System.out.println("  Exercise " + newExercise.getName() + " Created Successfully!\n");
+            CLIArt.divider();
+            System.out.println("   \t\tExercise " + newExercise.getName() + " Created Successfully!\n");
+            CLIArt.divider();
         } catch (Exception e) {
             handleException(e);
         }

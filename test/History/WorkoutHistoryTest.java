@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
@@ -20,7 +21,8 @@ public class WorkoutHistoryTest {
     }
 
     @Test
-    public void testCreateWorkoutHistory() {
+    public void testCreateWorkoutHistory() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
         final WorkoutHistory newWorkoutHistory = mockWorkoutHistory.getWorkoutHistory(new WorkoutSession(0, new WorkoutPlan(0, "test", new ArrayList<>())));
         assertNotEquals(newWorkoutHistory.getId(), mockWorkoutHistory.getId());
     }

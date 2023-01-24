@@ -74,7 +74,7 @@ public class ExerciseCLI {
             CLIArt.divider();
             System.out.println("   \t\t\tFound [" + exercises.size() + "] Exercises\n");
             for (int i = 0; i < exercises.size(); i++) {
-                System.out.println("   Item " + (i + 1) + ") " + exercises.toString() + "\n");
+                System.out.println("   Item " + (i + 1) + ") " + exercises.get(i).toString() + "\n");
             }
             CLIArt.divider();
         } catch (Exception e) {

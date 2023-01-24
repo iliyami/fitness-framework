@@ -51,4 +51,9 @@ public class WorkoutHistory {
         tempWorkoutHistory.timestamp = LocalDateTime.now();
         return tempWorkoutHistory;
     }
+
+    @Override
+    public String toString() {
+        return "WorkoutHistory [id=" + id + ", timestamp=" + timestamp + ", workoutSession=" + workoutSession + "]";
+    }
 }

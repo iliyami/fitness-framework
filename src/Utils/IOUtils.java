@@ -7,4 +7,8 @@ public class IOUtils {
         sc.nextLine();
         sc.reset();
     }
+
+    public static void handleException(Exception e) {
+        System.out.println("  [Handled Exception]" + e + "\n");
+    }
 }

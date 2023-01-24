@@ -60,21 +60,18 @@ public class SearchHistoryCLI {
     private static void SearchByIdParser(final Scanner sc) {
     	try {
     		System.out.println(
-	                "  args: history id");
+	                "  args: historyID");
 	        System.out.print("  ");
-	        sc.reset();
-	        final String args = sc.nextLine();
-	        
-	        final String[] argsArray = args.split(" ");
-	        if (argsArray.length != 1) {
+	        final String[] args = sc.nextLine().split(" ");
+	        if (args.length != 1) {
 	            throw new Exception("  Bad input! Need 1 arg.");
 	        }
 	        final SearchWorkoutHistoryController searchController = new SearchWorkoutHistoryController();
-	        final WorkoutHistory history = searchController.getHistoryById(Integer.parseInt(argsArray[0]));
+	        final WorkoutHistory history = searchController.getHistoryById(Integer.parseInt(args[0]));
 	        System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -95,7 +92,7 @@ public class SearchHistoryCLI {
 	        System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -116,7 +113,7 @@ public class SearchHistoryCLI {
 	        System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -140,7 +137,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -163,7 +160,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -188,7 +185,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -211,7 +208,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -234,7 +231,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -257,7 +254,7 @@ public class SearchHistoryCLI {
 	        	System.out.println("  " + history.toString() + "\n");
 	        
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     

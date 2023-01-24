@@ -2,9 +2,14 @@ package test.Workout;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalTime;
+
 import org.junit.Test;
 
+import Exercise.BodyPart;
+import Exercise.Exercise;
 import Exercise.ExerciseType;
+import Exercise.Muscle;
 import Workout.MuscularExercisePlan;
 import Workout.CardioExercisePlan;
 

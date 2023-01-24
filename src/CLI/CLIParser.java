@@ -39,7 +39,7 @@ public class CLIParser {
                     break;
                 case '7':
                     stay = false;
-                    System.out.println("\Close the framework successfully\n");
+                    System.out.println("\nClose the framework successfully\n");
                     break;
                 default:
                     System.out.println("Wrong input! Try again.\n");

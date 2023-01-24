@@ -137,7 +137,7 @@ public class SearchWorkoutHistoryController {
             Iterator<ExercisePlan> exercisePlanIterator = workoutPlan.getExercisePlans().iterator();
             while (exercisePlanIterator.hasNext()) {
             	ExercisePlan exercisePlan = exercisePlanIterator.next();
-                if (exercisePlan.getExercise().equals(exercise)) {
+                if (exercisePlan.getExercise().getId() == exercise.getId()) {
                     result.add(workoutHistory);
                     break;
                 }

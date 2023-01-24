@@ -38,7 +38,7 @@ public class ExercisePlanInventory {
         Iterator<ExercisePlan> iterator = this.exercisePlans.iterator();
         while (iterator.hasNext()) {
             ExercisePlan exercisePlan = iterator.next();
-            if (exercisePlan.getExercise().equals(exercise)) {
+            if (exercisePlan.getExercise().getId() == exercise.getId()) {
                 return exercisePlan;
             }
         }

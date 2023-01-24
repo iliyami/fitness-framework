@@ -28,24 +28,24 @@ public class workoutHistoryControllerTest {
     @Test
     public void testWorkoutHistories() {
         final ArrayList<WorkoutHistory> newWorkoutHistories = new ArrayList<>();
-        newWorkoutHistories.add(new WorkoutHistory(new WorkoutSession(new WorkoutPlan(120, "test", null))));
+        newWorkoutHistories.add(new WorkoutHistory(new WorkoutSession(0, new WorkoutPlan(120, "test", null))));
         mockWorkoutHistoryController.setWorkoutHistories(newWorkoutHistories);
         assertEquals(newWorkoutHistories.get(0).getId(), mockWorkoutHistoryController.getWorkoutHistories().get(0).getId());
     }
 
     @Test
     public void testSavingWorkoutHistory() {
-        final WorkoutSession newSession = new WorkoutSession(new WorkoutPlan(14, "Test", null));
+        final WorkoutSession newSession = new WorkoutSession(0, new WorkoutPlan(14, "Test", null));
         mockWorkoutHistoryController.saveHistory(newSession);
         assertEquals(newSession, mockWorkoutHistoryController.getWorkoutHistories().get(mockWorkoutHistoryController.getWorkoutHistories().size() - 1).getWorkoutSession());
     }
 
     @Test
     public void testUpdatingHistory() {
-        WorkoutSession newSession = new WorkoutSession(new WorkoutPlan(14, "Test", null));
+        WorkoutSession newSession = new WorkoutSession(0, new WorkoutPlan(14, "Test", null));
         mockWorkoutHistoryController.saveHistory(newSession);
         final int newSessionWorkoutPlanId = 0;
-        newSession = new WorkoutSession(new WorkoutPlan(newSessionWorkoutPlanId, "Test", null));
+        newSession = new WorkoutSession(newSessionWorkoutPlanId, new WorkoutPlan(newSessionWorkoutPlanId, "Test", null));
         final boolean result = mockWorkoutHistoryController.updateHistory(mockWorkoutHistoryController.getWorkoutHistories().get(mockWorkoutHistoryController.getWorkoutHistories().size() - 1).getId(), newSession);
         assertEquals(true, result);
         assertEquals(newSessionWorkoutPlanId, mockWorkoutHistoryController.getWorkoutHistories().get(mockWorkoutHistoryController.getWorkoutHistories().size() - 1).getWorkoutSession().getPlan().getId());
@@ -53,8 +53,8 @@ public class workoutHistoryControllerTest {
 
     @Test
     public void testDeletingHistory() {
-        WorkoutSession newSession = new WorkoutSession(new WorkoutPlan(14, "Test", null));
-        WorkoutSession newSession2 = new WorkoutSession(new WorkoutPlan(12, "Test", null));
+        WorkoutSession newSession = new WorkoutSession(0, new WorkoutPlan(14, "Test", null));
+        WorkoutSession newSession2 = new WorkoutSession(0, new WorkoutPlan(12, "Test", null));
         mockWorkoutHistoryController.saveHistory(newSession);
         mockWorkoutHistoryController.saveHistory(newSession2);
         final int newSessionWorkoutPlanId = mockWorkoutHistoryController.getWorkoutHistories().get(mockWorkoutHistoryController.getWorkoutHistories().size() - 1).getWorkoutSession().getPlan().getId();

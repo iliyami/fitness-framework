@@ -9,10 +9,6 @@ import java.util.List;
 public class ExerciseInventory {
     private static ExerciseInventory singleExerciseInventory = null;
     private List<Exercise> exercises = new ArrayList<Exercise>();
-  
-    public List<Exercise> getExercises() {
-        return exercises;
-    }
 
     public static ExerciseInventory getInstance()
     {

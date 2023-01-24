@@ -2,6 +2,7 @@ package History;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import Workout.WorkoutSession;
 

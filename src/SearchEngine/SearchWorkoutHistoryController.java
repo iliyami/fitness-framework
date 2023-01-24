@@ -12,7 +12,6 @@ import java.time.LocalTime;
 
 import History.WorkoutHistory;
 import History.WorkoutHistoryController;
-import History.WorkoutHistoryInvertory;
 import Workout.CardioExercisePlan;
 import Workout.ExercisePlan;
 import Workout.MuscularExercisePlan;
@@ -20,7 +19,6 @@ import Workout.WorkoutPlan;
 
 public class SearchWorkoutHistoryController {
     private WorkoutHistoryController workoutHistoryController;
-    private WorkoutHistoryInvertory workoutHistoryInvertory = WorkoutHistoryInvertory.getInstance();
 
     public SearchWorkoutHistoryController(WorkoutHistoryController workoutHistoryController) {
         setWorkoutHistoryController(workoutHistoryController);
@@ -35,7 +33,7 @@ public class SearchWorkoutHistoryController {
     }
 
     public WorkoutHistory getHistoryById(int id) {
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             if (workoutHistory.getId() == id) {
@@ -46,11 +44,11 @@ public class SearchWorkoutHistoryController {
     }
 
     public WorkoutHistory getHistoryByIndex(int index) {
-        return workoutHistoryInvertory.getWorkoutHistories().get(index);
+        return workoutHistoryController.getWorkoutHistories().get(index);
     }
 
     public WorkoutHistory getHistoryByWorkoutPlan(int id){
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             if (workoutHistory.getWorkoutSession().getPlan().getId() == id) {
@@ -62,7 +60,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesByTimeRange(LocalDateTime start, LocalDateTime end){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             if (workoutHistory.getTimestamp().isBefore(end) && workoutHistory.getTimestamp().isAfter(start)) {
@@ -74,7 +72,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesByExercisePlan(int id){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             WorkoutPlan workoutPlan = workoutHistory.getWorkoutSession().getPlan();
@@ -92,7 +90,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesFilteredByCalAmount(int cals){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             WorkoutPlan workoutPlan = workoutHistory.getWorkoutSession().getPlan();
@@ -110,7 +108,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesFilteredByReps(int reps){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             WorkoutPlan workoutPlan = workoutHistory.getWorkoutSession().getPlan();
@@ -128,7 +126,7 @@ public class SearchWorkoutHistoryController {
 
     public List<WorkoutHistory> getHistoriesFilteredByExercise(Exercise exercise){
         List<WorkoutHistory> result = new ArrayList<WorkoutHistory>();
-        Iterator<WorkoutHistory> iterator = workoutHistoryInvertory.getWorkoutHistories().iterator();
+        Iterator<WorkoutHistory> iterator = workoutHistoryController.getWorkoutHistories().iterator();
         while (iterator.hasNext()) {
             WorkoutHistory workoutHistory = iterator.next();
             WorkoutPlan workoutPlan = workoutHistory.getWorkoutSession().getPlan();

@@ -52,7 +52,7 @@ public class ExerciseCLI {
             if (argsArray.length != 7) {
                 throw new Exception("  Bad input! Needs 7 args.");
             }
-            final SearchExerciseController searchExercise = new SearchExerciseController(ExerciseInventory.getInstance());
+            final SearchExerciseController searchExercise = new SearchExerciseController();
             final int exerciseID = Integer.parseInt(argsArray[0]);
             final Exercise exercise = searchExercise.getExerciseById(exerciseID);
             if (exercise == null) {
@@ -97,7 +97,7 @@ public class ExerciseCLI {
                 throw new Exception("  Bad input! Needs 1 arg.");
             }
             final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
-            final Exercise exercise = new SearchExerciseController(exerciseInventory).getExerciseById(Integer.parseInt(args[0]));
+            final Exercise exercise = new SearchExerciseController().getExerciseById(Integer.parseInt(args[0]));
             boolean isDeleted = exerciseInventory.deleteExercise(exercise);
             CLIArt.divider();
             if (isDeleted) {

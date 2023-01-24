@@ -10,7 +10,7 @@ import CLI.SearchCLI.SearchCLI;
 import CLI.WorkoutCLI.WorkoutCLI;
 
 public class CLIParser {
-    public static void buildMenu() {
+    public static void RunCLIParser() {
         System.out.println("The program start running ...\n");
         final Scanner sc = new Scanner(System.in);
         CLIArt.buildMenu();

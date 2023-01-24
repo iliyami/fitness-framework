@@ -57,49 +57,38 @@ public class ExercisePlanCLI {
 	        }
 	        return ExerciseType.valueOf(argsArray[0]);
 	    } catch (Exception e) {
-	        System.out.println(e + "\n");
+	        IOUtils.handleException(e);
 	    }
 		return null;
     }
 
     private static void CreateExercisePlanParser(final Scanner sc) {
         try {
-            ExerciseType type = CheckExerciseType(sc);
-            if(type.equals(ExerciseType.CARDIOVASCULAR)) {
+            ExerciseType exerciseType = CheckExerciseType(sc);
             	System.out.println(
     	                "  args: weight, exerciseID, calAmount, interval, duration[eg:" + LocalTime.now().toString() + "]");
     	        System.out.print("  ");
     	        sc.reset();
-    	        final String args = sc.nextLine();
-    	        
-    	        final String[] argsArray = args.split(" ");
-    	        if (argsArray.length != 5) {
-    	            throw new Exception("  Bad input! Need 5 args.");
-    	        }
-    	        final ExerciseInventory exerciseInventory = ExerciseInventory.getInstance();
-    	        final Exercise exercise = exerciseInventory.getExerciseById(Integer.parseInt(argsArray[1]));
-    	        final CardioExercisePlan newCardioExercisePlan = new CardioExercisePlan(
-    	        		Integer.parseInt(argsArray[0]), exercise, Integer.parseInt(argsArray[2]),
-    	        		Integer.parseInt(argsArray[3]), LocalTime.parse(argsArray[4]));
-    	        System.out.println("  Exercise Plan " + newCardioExercisePlan.getId() + " Created Successfully!\n");		
-            }
-            if(type.equals(ExerciseType.MUSCULAR)) {
-            	System.out.println(
-    	                "  args: weight exerciseID rep set rest[eg:" + LocalTime.now().toString() + "]");
-    	        System.out.print("  ");
     	        final String[] args = sc.nextLine().split(" ");
+    	        
     	        if (args.length != 5) {
     	            throw new Exception("  Bad input! Need 5 args.");
     	        }
     	        final Exercise exercise = ExerciseInventory.getInstance().getExerciseById(Integer.parseInt(args[1]));
-    	        final ExercisePlan newExercisePlan = new MuscularExercisePlan(
-    	        		 Integer.parseInt(args[0]), exercise, Integer.parseInt(args[2]),
+				final ExercisePlan newExercisePlan;
+				if(exerciseType.equals(ExerciseType.MUSCULAR)) {
+					newExercisePlan = new MuscularExercisePlan(
+						Integer.parseInt(args[0]), exercise, Integer.parseInt(args[2]),
+					   Integer.parseInt(args[3]), LocalTime.parse(args[4]));
+				} else {
+					newExercisePlan = new CardioExercisePlan(
+    	        		Integer.parseInt(args[0]), exercise, Integer.parseInt(args[2]),
     	        		Integer.parseInt(args[3]), LocalTime.parse(args[4]));
+				}
+				ExercisePlanInventory.getInstance().addOrUpdateExercisePlan(newExercisePlan);
     	        System.out.println("  Exercise Plan " + newExercisePlan.getId() + " Created Successfully!\n");		
-            }
-            
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -140,7 +129,7 @@ public class ExercisePlanCLI {
 	        else
 	        	System.out.println("  Exercise Plan Not Found!\n");
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -191,7 +180,7 @@ public class ExercisePlanCLI {
             }
             
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     
@@ -211,7 +200,7 @@ public class ExercisePlanCLI {
 	        		exercisePlanInventory.getExercisePlanById(Integer.parseInt(args[0])));
     	    System.out.println("  Exercise Plan Deleted Successfully!\n");
         } catch (Exception e) {
-            System.out.println(e + "\n");
+            IOUtils.handleException(e);
         }
     }
     

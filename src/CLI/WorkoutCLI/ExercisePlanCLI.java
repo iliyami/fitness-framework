@@ -105,7 +105,7 @@ public class ExercisePlanCLI {
     
     private static void ViewExercisePlanParser(final Scanner sc) {
         try {
-            System.out.println("  args: exercise id");
+            System.out.println("  args: exerciseID");
 	        System.out.print("  ");
 	        sc.reset();
 	        final String args = sc.nextLine();
@@ -198,7 +198,7 @@ public class ExercisePlanCLI {
 
     private static void DeleteExercisePlanParser(final Scanner sc) {
         try {
-            System.out.println("  args: exercise plan id");
+            System.out.println("  args: exercisePlanID");
 	        System.out.print("  ");
 	        sc.reset();
 	        final String[] args = sc.nextLine().split(" ");

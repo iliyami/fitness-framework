@@ -55,8 +55,20 @@ public class WorkoutPlanTest {
         );
         final String newName = "new workout";
         workoutPlan.editPlan(newName, exercisePlans);
-        assertEquals(workoutPlan.getId(), 1);
-        assertEquals(workoutPlan.getName(), newName);
+        assertEquals(1, workoutPlan.getId());
+        assertEquals(newName, workoutPlan.getName());
+    }
+
+    @Test
+    public void testUpdateWorkoutPlanInventory() {
+        WorkoutPlan workoutPlan = new WorkoutPlan(
+            1, "my workout", exercisePlans
+        );
+        final String newName = "new workout";
+        workoutPlan.editPlan(newName, exercisePlans);
+        workoutPlan.addWorkoutPlanInInventory(workoutPlan);
+        workoutPlan.UpdateWorkoutPlanInInventory(workoutPlan);
+        assertEquals(newName, workoutPlanInventory.getWorkoutPlanById(workoutPlan.getId()).getName());
     }
 
     @Test
@@ -65,7 +77,7 @@ public class WorkoutPlanTest {
             1, "my workout", exercisePlans
         );
         final WorkoutPlan foundWorkoutPlan = workoutPlanInventory.getWorkoutPlanById(1);
-        assertEquals(workoutPlan, foundWorkoutPlan);
+        assertEquals(foundWorkoutPlan, workoutPlan);
     }
 
     @Test

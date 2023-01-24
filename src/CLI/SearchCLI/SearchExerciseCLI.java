@@ -3,6 +3,7 @@ package CLI.SearchCLI;
 import java.util.List;
 import java.util.Scanner;
 
+import CLI.CLIArt;
 import Exercise.Exercise;
 import Exercise.ExerciseType;
 import SearchEngine.SearchExerciseController;
@@ -44,19 +45,18 @@ public class SearchExerciseCLI {
     private static void SearchByIdParser(final Scanner sc) {
     	try {
     		System.out.println(
-	                "  args: exercise id");
+	                "  args: exerciseID");
 	        System.out.print("  ");
 	        sc.reset();
-	        final String args = sc.nextLine();
-	        
-	        final String[] argsArray = args.split(" ");
-	        if (argsArray.length != 1) {
+	        final String[] args = sc.nextLine().split(" ");
+	        if (args.length != 1) {
 	            throw new Exception("  Bad input! Need 1 arg.");
 	        }
 	        final SearchExerciseController searchExerciseController = new SearchExerciseController();
-	        final Exercise exercise = searchExerciseController.getExerciseById(Integer.parseInt(argsArray[0]));
+	        final Exercise exercise = searchExerciseController.getExerciseById(Integer.parseInt(args[0]));
+			CLIArt.divider();
 	        System.out.println("  " + exercise.toString() + "\n");
-	        
+			CLIArt.divider();
         } catch (Exception e) {
             System.out.println(e + "\n");
         }
@@ -67,22 +67,31 @@ public class SearchExerciseCLI {
     		System.out.println(
 	                "  args: name");
 	        System.out.print("  ");
-	        sc.reset();
-	        final String args = sc.nextLine();
-	        
-	        final String[] argsArray = args.split(" ");
-	        if (argsArray.length != 1) {
+
+	        final String[] args = sc.nextLine().split(" ");
+	        if (args.length != 1) {
 	            throw new Exception("  Bad input! Need 1 arg.");
 	        }
 	        final SearchExerciseController searchExerciseController = new SearchExerciseController();
-	        final List<Exercise> exercises = searchExerciseController.getExerciseByName(argsArray[0]);
-	        for(Exercise exercise : exercises)
-	        	System.out.println("  " + exercise.toString() + "\n");
+	        final List<Exercise> exercises = searchExerciseController.getExerciseByName(args[0]);
+			printResults(exercises);
 	        
         } catch (Exception e) {
             System.out.println(e + "\n");
         }
     }
+
+
+	private static void printResults(final List<Exercise> exercises) {
+		CLIArt.divider();
+		CLIArt.printFoundResults(exercises.size());
+		for(Exercise exercise : exercises)
+			System.out.println("  " + exercise.toString() + "\n");
+		CLIArt.divider();
+	}
+
+
+	
     
     private static void SearchByTypeParser(final Scanner sc) {
     	try {
@@ -99,8 +108,8 @@ public class SearchExerciseCLI {
 	        final SearchExerciseController searchExerciseController = new SearchExerciseController();
 	        final List<Exercise> exercises =
 	        		searchExerciseController.getExerciseByType(ExerciseType.valueOf(argsArray[0]));
-	        for(Exercise exercise : exercises)
-	        	System.out.println("  " + exercise.toString() + "\n");
+			printResults(exercises);
+
 	        
         } catch (Exception e) {
             System.out.println(e + "\n");
@@ -121,9 +130,7 @@ public class SearchExerciseCLI {
 	        }
 	        final SearchExerciseController searchExerciseController = new SearchExerciseController();
 	        final List<Exercise> exercises = searchExerciseController.getExerciseByPopularity(Integer.parseInt(argsArray[0]));
-	        for(Exercise exercise : exercises)
-	        	System.out.println("  " + exercise.toString() + "\n");
-	        
+			printResults(exercises);
         } catch (Exception e) {
             System.out.println(e + "\n");
         }

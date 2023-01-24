@@ -67,4 +67,8 @@ public class CLIArt {
     public static void divider() {
         System.out.println("   ===============================================================\n");
     }
+
+    public static void printFoundResults(final int counts) {
+		System.out.println("   \t\t\tFound [" + counts + "] Exercises\n");
+	}
 }

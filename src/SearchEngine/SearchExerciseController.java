@@ -46,10 +46,8 @@ public class SearchExerciseController {
 
     public List<Exercise> getExerciseByName(String name){
         List<Exercise> result = new ArrayList<Exercise>();
-        Iterator<Exercise> iterator = exerciseInventory.getExercises().iterator();
-        while (iterator.hasNext()) {
-            Exercise exercise = iterator.next();
-            if (exercise.getName() == name) {
+        for (Exercise exercise : exerciseInventory.getExercises()) {
+            if (exercise.getName().equals(name)) {
                 result.add(exercise);
             }
         }

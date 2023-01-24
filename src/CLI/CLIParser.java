@@ -16,6 +16,7 @@ public class CLIParser {
         CLIArt.buildMenu();
         boolean stay = true;
         while (stay) {
+            CLIArt.buildMenuItems();
             final String menuItem = sc.next();
             switch (menuItem.charAt(0)) {
                 case '1':
@@ -38,7 +39,7 @@ public class CLIParser {
                     break;
                 case '7':
                     stay = false;
-                    System.out.println("\nShutdown the framework successfully\n");
+                    System.out.println("\Close the framework successfully\n");
                     break;
                 default:
                     System.out.println("Wrong input! Try again.\n");

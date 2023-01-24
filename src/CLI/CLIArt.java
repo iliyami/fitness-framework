@@ -12,9 +12,8 @@ public class CLIArt {
         System.out.println("[2] Workout                                       |");
         System.out.println("[3] Measurement                                   |");
         System.out.println("[4] Search                                        |");
-        System.out.println("[5] Notifications                                 |");
-        System.out.println("[6] History                                       |");
-        System.out.println("[7] Exit                                          |");
+        System.out.println("[5] History                                       |");
+        System.out.println("[6] Exit                                          |");
         System.out.println("---------------------------------------------------"    );
     }
 

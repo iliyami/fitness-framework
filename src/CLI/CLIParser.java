@@ -32,12 +32,9 @@ public class CLIParser {
                 SearchCLI.callSearchTools();
                     break;
                 case '5':
-                NotificationCLI.callNotificationTools();
-                    break;
-                case '6':
                 HistoryCLI.callHistoryTools();
                     break;
-                case '7':
+                case '6':
                     stay = false;
                     System.out.println("\nClose the framework successfully\n");
                     break;

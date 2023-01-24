@@ -2,3 +2,7 @@
 .vscode
 **/*.class
 lib
+.idea/vcs.xml
+.idea/misc.xml
+fitness-framework.iml
+.idea/modules.xml

@@ -84,6 +84,6 @@ This project is open-source and licensed under the [MIT License](LICENSE). You a
 
 ## Contact
 
-If you have any questions, suggestions, or issues related to the Fitness Framework, feel free to contact us at [your.email@example.com](mailto:your.email@example.com).
+If you have any questions, suggestions, or issues related to the Fitness Framework, feel free to contact us at [your.email@example.com](mailto:iliya.mi78@gmail.com).
 
 Thank you for using the Fitness Framework! We hope it helps you in your fitness journey.
